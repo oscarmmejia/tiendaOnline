@@ -1,36 +1,36 @@
 /* Vive dentro del header, alineado a la derecha junto al menu de navegacion. */
-.weather-widget {
+.weatherWidget {
 	color: var(--colorText);
 	font-family: var(--fontMono);
 	min-width: 5rem;
 }
 
-.weather-summary {
+.weatherSummary {
 	align-items: center;
 	display: flex;
 	gap: 0.125rem;
 	justify-content: flex-end;
 }
 
-.weather-icon {
+.weatherIcon {
 	height: 2.25rem;
 	width: 2.25rem;
 }
 
-.weather-temperature {
+.weatherTemperature {
 	font-size: 1.125rem;
 	font-weight: 700;
 	line-height: 1;
 }
 
-.weather-unit {
+.weatherUnit {
 	align-self: flex-start;
 	font-size: 0.6875rem;
 	margin-top: 0.125rem;
 }
 
-.weather-loading,
-.weather-error {
+.weatherLoading,
+.weatherError {
 	color: var(--colorTextMuted);
 	font-size: 0.625rem;
 	letter-spacing: 0.05em;
@@ -39,14 +39,14 @@
 	text-align: right;
 }
 
-.weather-loading {
+.weatherLoading {
 	color: var(--colorCyan);
 }
 
 @media (max-width: 600px) {
-	.weather-summary,
-	.weather-loading,
-	.weather-error {
+	.weatherSummary,
+	.weatherLoading,
+	.weatherError {
 		justify-content: center;
 		text-align: center;
 	}

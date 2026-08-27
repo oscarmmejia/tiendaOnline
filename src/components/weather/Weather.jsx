@@ -39,25 +39,25 @@ function Weather() {
 	}, [initialError])
 
 	if (initialError || error) {
-		return <aside className="weather-widget weather-error">{initialError || error}</aside>
+		return <aside className="weatherWidget weatherError">{initialError || error}</aside>
 	}
 
 	if (!weather) {
-		return <aside className="weather-widget weather-loading">Localizando...</aside>
+		return <aside className="weatherWidget weatherLoading">Localizando...</aside>
 	}
 
 	const weatherType = weather.weather[0]
 
 	return (
-		<aside className="weather-widget" aria-label="Clima actual">
-			<div className="weather-summary">
+		<aside className="weatherWidget" aria-label="Clima actual">
+			<div className="weatherSummary">
 				<img
-					className="weather-icon"
+					className="weatherIcon"
 					src={`https://openweathermap.org/img/wn/${weatherType.icon}@2x.png`}
 					alt={weatherType.description}
 				/>
-				<span className="weather-temperature">{Math.round(weather.main.temp)}</span>
-				<span className="weather-unit">°C</span>
+				<span className="weatherTemperature">{Math.round(weather.main.temp)}</span>
+				<span className="weatherUnit">°C</span>
 			</div>
 		</aside>
 	)

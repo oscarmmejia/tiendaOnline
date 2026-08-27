@@ -11,10 +11,23 @@ export function useUsers(limit) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetchUsers(limit)
-            .then(setUsers)
-            .catch((err) => setError(err.message))
-            .finally(() => setLoading(false));
+        const controller = new AbortController();
+
+        const loadUsers = async () => {
+            try {
+                setUsers(await fetchUsers(limit, controller.signal));
+            } catch (fetchError) {
+                if (fetchError.name !== "AbortError") {
+                    setError(fetchError.message);
+                }
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadUsers();
+
+        return () => controller.abort();
     }, [limit]);
 
     return { users, loading, error };
