@@ -1,14 +1,12 @@
-import './styles/App.css'
-import Footer from './components/footer/Footer.jsx'
-import Weather from './components/wather/weather.jsx'
+import Header from './components/Header/Header'
+import './App.css'
 
-function App() {
-	return (
-		<main>
-			<Weather />
-			<Footer />
-		</main>
-	)
+const App = () => {
+  return (
+    <div className="app">
+      <Header />
+    </div>
+  )
 }
 
 export default App
