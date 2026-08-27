@@ -1,12 +1,16 @@
+
 * {
   box-sizing: border-box;
-}
-
-html {
-  background-color: #05070d;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  min-width: 20rem;
-  margin: 0;
+  font-family: 'Sora', sans-serif;
+  background-color: #05070d;
+  color: #ffffff;
 }
+:root { font-family: 'Trebuchet MS', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
+body { margin: 0; }

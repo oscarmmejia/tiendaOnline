@@ -1,0 +1,29 @@
+const API_URL = "https://api.escuelajs.co/api/v1/users";
+
+/**
+ * @param {number} limit 
+ * @returns {Promise<Object[]>} 
+ */
+export async function fetchUsers(limit = 40) {
+    const response = await fetch(`${API_URL}?limit=${limit}`);
+
+    if (!response.ok) {
+        throw new Error(`Error al obtener usuarios: HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.map(mapUser);
+}
+
+/**
+ * @param {Object} apiUser 
+ * @returns {Object} 
+ */
+
+function mapUser(apiUser) {
+    return {
+        id: apiUser.id,
+        avatar: apiUser.avatar,
+        name: apiUser.name.toUpperCase().replace(/\s+/g, "_"),
+    };
+}
