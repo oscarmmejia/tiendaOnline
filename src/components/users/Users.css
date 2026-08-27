@@ -1,0 +1,95 @@
+.users {
+    background-color: #05070d;
+    padding: 4rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.usersTag {
+    border: 1px solid rgba(217, 70, 239, 0.6);
+    color: #d946ef;
+    font-family: monospace;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.08em;
+}
+
+.usersTitle {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-family: 'Sora', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin: 0 0 1.25rem;
+    text-shadow:
+        0 0 30px rgba(34, 211, 238, 0.5),
+        0 0 60px rgba(34, 211, 238, 0.2);
+}
+
+.usersDescription {
+    color: #94a3b8;
+    font-size: 0.90rem;
+    max-width: 33rem;
+    line-height: 1.7;
+    margin: 0 0 3rem;
+}
+
+.usersGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+
+}
+
+@media (max-width: 200px) {
+    .usersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 200px) {
+    .usersGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.usersLoadMore {
+    align-self: center;
+    margin-top: 3rem;
+    background: transparent;
+    border: 1px solid #22d3ee;
+    color: #22d3ee;
+    font-family: monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 1.75rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.usersLoadMore:hover {
+    background-color: rgba(34, 211, 238, 0.1);
+}
+
+.usersLoading {
+    color: #22d3ee;
+    font-family: monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    animation: blink 1s step-start infinite;
+    margin: 4rem auto;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
