@@ -1,10 +1,12 @@
 import './App.css'
-import Weather from './components/weather.jsx'
+import Footer from './components/footer/Footer.jsx'
+import Weather from './components/wather/weather.jsx'
 
 function App() {
 	return (
 		<main>
 			<Weather />
+			<Footer />
 		</main>
 	)
 }
