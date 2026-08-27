@@ -4,21 +4,3 @@ main {
     background-color: #131313;
 }
 
-.team-toggle {
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    z-index: 20;
-    border: 1px solid #22d3ee;
-    padding: 7px 10px;
-    color: #22d3ee;
-    background: transparent;
-    font: inherit;
-    font-size: 11px;
-    cursor: pointer;
-}
-
-.team-toggle:hover {
-    color: #05070d;
-    background-color: #22d3ee;
-}
