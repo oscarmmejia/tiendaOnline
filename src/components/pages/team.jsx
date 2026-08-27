@@ -3,6 +3,7 @@ import memberOne from '../../img/team/teamMember1.png'
 import memberTwo from '../../img/team/teamMember2.png'
 import memberThree from '../../img/team/teamMember3.png'
 import memberFour from '../../img/team/teamMember4.png'
+import memberFive from '../../img/team/teamMember5.png'
 import '../../styles/team.css'
 
 const teamMembers = [
@@ -37,6 +38,14 @@ const teamMembers = [
 		role: 'OPERADOR DE LOGÍSTICA',
 		description: 'Coordina el viaje de cada pedido desde el nodo de distribución hasta la puerta del cliente, con entregas rápidas y seguimiento en tiempo real.',
 		tags: ['LOGÍSTICA', 'SMART DELIVERY'],
+	},
+    {
+		src: memberFive,
+		level: 'NIVEL 7',
+		name: 'Cristina Rodríguez López',
+		role: 'ESTRATEGA DE EXPERIENCIA',
+		description: 'Diseña una experiencia de compra intuitiva y futurista, conectando las necesidades de cada cliente con los productos más innovadores del catálogo.',
+		tags: ['UX FUTURISTA', 'CLIENTE 360'],
 	},
 ]
 
