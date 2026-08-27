@@ -1,4 +1,22 @@
-# React + Vite
+# Cielo abierto
+
+Consulta el clima actual de cualquier ciudad usando OpenWeatherMap.
+
+## Configuración local
+
+1. Copia `.env.example` como `.env.local`.
+2. Añade tu clave en `VITE_OPENWEATHER_API_KEY`.
+3. Ejecuta `npm.cmd run dev`.
+
+`.env.local` está excluido por `.gitignore`; nunca subas ese archivo a GitHub.
+
+> Importante: las variables `VITE_*` se incluyen en el JavaScript del navegador. Esto evita publicar la clave en el repositorio, pero no la hace secreta para quienes visiten la aplicación. Para protegerla también en producción, usa un endpoint backend o una función serverless que haga la consulta a OpenWeatherMap.
+
+## Scripts
+
+- `npm.cmd run dev`: inicia el servidor de desarrollo.
+- `npm.cmd run build`: genera la versión de producción.
+- `npm.cmd run lint`: revisa el código.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
