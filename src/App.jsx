@@ -1,28 +1,36 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './styles/App.css'
-import Hero from "./components/Hero/Hero";
-import ProductsComponent from "./components/ProductsComponent/ProductsComponent";
-import Footer from './components/footer/Footer.jsx'
-import CategoryCard from './components/CategoryCard/CategoryCard.jsx'
-import TitleDescriptionComponent from './components/TitleDescriptionComponent/TitleDescriptionComponent.jsx'
-import Weather from './components/wather/weather.jsx'
-import Users from "./components/users/Users";
+import { ROUTE_PATHS } from './routes/routePaths'
+import MainLayout from './components/templates/mainLayout/MainLayout.jsx'
+import HomePage from './components/pages/homePage/HomePage.jsx'
+import ProductsPage from './components/pages/productsPage/ProductsPage.jsx'
+import ComingSoonPage from './components/pages/comingSoonPage/ComingSoonPage.jsx'
+import NotFoundPage from './components/pages/notFoundPage/NotFoundPage.jsx'
+import Team from './components/pages/team/Team.jsx'
+import Users from './components/users/Users.jsx'
 
-function App() {
+const App = () => {
 	return (
-		<main>
-			<Hero />
-			<ProductsComponent />
-			<Weather />
-			<TitleDescriptionComponent
-				subtitle='QUANTUM DEPARTMENT'
-				subtitleColor='cyan'
-				title='Categorías de Productos'
-				description='Ponemos a tu disposición una oferta diversificada de productos'
-			/>
-			<CategoryCard />
-			<Footer />
-		</main>
+		<BrowserRouter>
+			<Routes>
+				<Route element={<MainLayout />}>
+					<Route path={ROUTE_PATHS.home} element={<HomePage />} />
+					<Route path={ROUTE_PATHS.products} element={<ProductsPage />} />
+					<Route path={ROUTE_PATHS.users} element={<Users />} />
+					<Route path={ROUTE_PATHS.team} element={<Team />} />
+					<Route
+						path={ROUTE_PATHS.ourStory}
+						element={<ComingSoonPage title="Nuestra historia" />}
+					/>
+					<Route
+						path={ROUTE_PATHS.sellers}
+						element={<ComingSoonPage title="Vendedores" />}
+					/>
+					<Route path="*" element={<NotFoundPage />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	)
 }
 
-export default App;
+export default App

@@ -1,0 +1,30 @@
+.pageHeading {
+	border-left: 4px solid var(--colorCyan);
+	padding-left: 1.5rem;
+}
+
+.pageHeadingTitle {
+	color: #e8f4f8;
+	font-family: var(--fontDisplay);
+	font-size: clamp(2.25rem, 8vw, 4.5rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.05;
+	margin: 0 0 1rem;
+	text-transform: uppercase;
+}
+
+.pageHeadingDescription {
+	color: var(--colorTextMuted);
+	font-family: var(--fontDisplay);
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 36rem;
+}
+
+@media (max-width: 600px) {
+	.pageHeading {
+		padding-left: 1rem;
+	}
+}

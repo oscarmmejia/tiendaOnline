@@ -1,16 +1,45 @@
+:root {
+	--fontDisplay: 'Sora', system-ui, sans-serif;
+	--fontMono: 'Space Mono', 'Courier New', Courier, monospace;
+
+	--colorBackground: #05070d;
+	--colorSurface: #0f172a;
+	--colorBorder: #334155;
+	--colorText: #ffffff;
+	--colorTextMuted: #8a95a5;
+	--colorCyan: #22d3ee;
+	--colorMagenta: #ff007a;
+
+	--layoutMaxWidth: 80rem;
+	--layoutPadding: 3rem;
+	--sectionGap: 5.5rem;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+#root {
+	min-width: 320px;
+	min-height: 100%;
 }
 
 body {
-  font-family: 'Sora', sans-serif;
-  background-color: #05070d;
-  color: #ffffff;
+	background-color: var(--colorBackground);
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
 }
-:root { font-family: 'Trebuchet MS', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
-* { box-sizing: border-box; }
-html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
-body { margin: 0; }
+
+@media (max-width: 600px) {
+	:root {
+		--layoutPadding: 1.25rem;
+		--sectionGap: 3.5rem;
+	}
+}

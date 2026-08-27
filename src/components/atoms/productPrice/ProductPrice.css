@@ -1,0 +1,8 @@
+.productPrice {
+	color: var(--colorMagenta);
+	font-family: var(--fontMono);
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	margin: 0;
+}

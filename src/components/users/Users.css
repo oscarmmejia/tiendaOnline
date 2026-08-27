@@ -74,3 +74,10 @@
         opacity: 0;
     }
 }
+.usersError {
+    color: #ff007a;
+    font-family: monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    margin: 4rem auto;
+}

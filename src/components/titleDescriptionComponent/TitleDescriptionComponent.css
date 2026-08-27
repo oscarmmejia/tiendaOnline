@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
+/*
+ * Margen superior amplio para separarse del bloque anterior y uno pequeño
+ * abajo, para que el titulo quede pegado a su propio contenido.
+ */
+.titleDescription {
+	margin: var(--sectionGap) auto 2rem;
+	max-width: var(--layoutMaxWidth);
+	padding-inline: var(--layoutPadding);
+	width: 100%;
+}
+
 .titleDescriptionSubtitle {
 	border: 1px solid;
 	border-radius: 4px;
@@ -7,7 +18,7 @@
 	font-family: 'Geist Mono', monospace;
 	font-size: 10px;
 	line-height: 1.2;
-	margin: 0 0 12px;
+	margin: 0 0 1rem;
 	padding: 4px 8px;
 }
 
@@ -26,9 +37,9 @@
 .titleDescriptionTitle {
 	color: #ffffff;
 	font-family: 'Outfit', sans-serif;
-	font-size: 32px;
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
 	line-height: 1.1;
-	margin: 0 0 8px;
+	margin: 0 0 0.75rem;
 }
 
 .titleDescriptionDescription {

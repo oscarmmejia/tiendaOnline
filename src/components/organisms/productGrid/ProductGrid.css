@@ -1,0 +1,29 @@
+/*
+ * auto-fill reparte tantas columnas como quepan en el ancho disponible y deja
+ * que las filas crezcan con el total de productos que devuelve la API.
+ */
+.productGrid {
+	display: grid;
+	gap: 3.5rem 2.25rem;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.productGridItem {
+	display: flex;
+}
+
+.productGridEmpty {
+	color: var(--colorTextMuted);
+	font-family: var(--fontMono);
+	font-size: 0.875rem;
+	margin: 0;
+}
+
+@media (max-width: 400px) {
+	.productGrid {
+		grid-template-columns: 1fr;
+	}
+}

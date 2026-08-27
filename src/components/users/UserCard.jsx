@@ -1,6 +1,6 @@
 import "./UserCard.css";
 
-const UserCard = ({ avatar, name, id }) => {
+const UserCard = ({ avatar, name }) => {
   return (
     <div className="userCard">
       <div className="userCardAvatarWrapper">

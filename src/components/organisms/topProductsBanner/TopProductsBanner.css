@@ -1,0 +1,87 @@
+/*
+ * Tira lateral: muestra tantas tarjetas como quepan y el resto se alcanzan
+ * desplazando en horizontal, con anclaje para que encajen de una en una.
+ */
+.topProductsBanner {
+	display: flex;
+	gap: 2.5rem;
+	list-style: none;
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	overflow-x: auto;
+	padding: 0.5rem var(--layoutPadding) 1.75rem;
+	/* Sin esto, el anclaje ignora el padding y se come el margen izquierdo. */
+	scroll-padding-inline: var(--layoutPadding);
+	scroll-snap-type: x mandatory;
+	width: 100%;
+}
+
+/* Barra de desplazamiento en cian, a juego con el resto de la interfaz. */
+.topProductsBanner {
+	scrollbar-color: var(--colorCyan) rgba(34, 211, 238, 0.12);
+	scrollbar-width: thin;
+}
+
+.topProductsBanner::-webkit-scrollbar {
+	height: 6px;
+}
+
+.topProductsBanner::-webkit-scrollbar-track {
+	background-color: rgba(34, 211, 238, 0.12);
+	border-radius: 999px;
+}
+
+.topProductsBanner::-webkit-scrollbar-thumb {
+	background-color: var(--colorCyan);
+	border-radius: 999px;
+}
+
+.topProductsBanner::-webkit-scrollbar-thumb:hover {
+	background-color: #67e8f9;
+}
+
+.topProductsBannerItem {
+	flex: 0 0 clamp(13rem, 21vw, 17rem);
+	position: relative;
+	scroll-snap-align: start;
+}
+
+.topProductsBannerRank {
+	background-color: rgba(5, 7, 13, 0.85);
+	border: 1px solid var(--colorMagenta);
+	border-radius: 2px;
+	color: var(--colorMagenta);
+	font-family: var(--fontMono);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	padding: 0.25rem 0.5rem;
+	position: absolute;
+	right: 0.625rem;
+	top: 0.625rem;
+	z-index: 1;
+}
+
+.topProductsBannerStatus {
+	color: var(--colorTextMuted);
+	font-family: var(--fontMono);
+	font-size: 0.875rem;
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding: 0 var(--layoutPadding) 1.5rem;
+	width: 100%;
+}
+
+.topProductsBannerStatusError {
+	color: var(--colorMagenta);
+}
+
+@media (max-width: 600px) {
+	.topProductsBanner {
+		gap: 1.5rem;
+	}
+
+	.topProductsBannerItem {
+		flex-basis: 78vw;
+	}
+}
