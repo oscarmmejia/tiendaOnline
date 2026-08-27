@@ -16,8 +16,8 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }) => {
 				onChange={(event) => onCategoryChange(event.target.value)}
 			>
 				<option value={ALL_CATEGORIES}>Todas</option>
-				{categories.map(({ slug, name }) => (
-					<option key={slug} value={slug}>
+				{categories.map(({ id, name }) => (
+					<option key={id} value={id}>
 						{name}
 					</option>
 				))}

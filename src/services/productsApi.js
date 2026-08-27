@@ -3,28 +3,34 @@ const API_BASE_URL = 'https://api.escuelajs.co/api/v1'
 export const ALL_CATEGORIES = 'all'
 
 /**
- * La API expone 42 categorias, pero solo estas cinco forman el catalogo real:
- * el resto son pruebas que cualquiera puede publicar en el sandbox publico.
- * El orden de las claves es el orden en que se muestran en el filtro.
+ * Catalogo real de la tienda, en el orden en que se muestra en el filtro.
+ *
+ * Se indexa por id y no por nombre porque la API es un sandbox publico donde
+ * cualquiera puede editar: la categoria 1 ("Clothes") esta renombrada ahora
+ * mismo a "updated-category-name". Los ids, en cambio, no cambian.
  */
-const CATALOG_CATEGORY_LABELS = {
-  clothes: 'Ropa',
-  furniture: 'Muebles',
-  shoes: 'Zapatos',
-  electronics: 'Electrónica',
-  miscellaneous: 'Misceláneos',
-}
+const CATALOG_CATEGORIES = [
+  { id: 1, name: 'Ropa', image: 'https://i.imgur.com/QkIa5tT.jpeg' },
+  { id: 3, name: 'Muebles', image: 'https://i.imgur.com/Qphac99.jpeg' },
+  { id: 4, name: 'Zapatos', image: 'https://i.imgur.com/qNOjJje.jpeg' },
+  { id: 2, name: 'Electrónica', image: 'https://i.imgur.com/ZANVnHE.jpeg' },
+  { id: 5, name: 'Misceláneos', image: 'https://i.imgur.com/BG8J0Fj.jpg' },
+]
 
-const catalogSlugs = Object.keys(CATALOG_CATEGORY_LABELS)
+const catalogIds = CATALOG_CATEGORIES.map(({ id }) => id)
 
-const isCatalogCategory = ({ slug }) => catalogSlugs.includes(slug)
+const findCatalogCategory = (categoryId) =>
+  CATALOG_CATEGORIES.find(({ id }) => id === categoryId)
 
-const byCatalogOrder = (categoryA, categoryB) =>
-  catalogSlugs.indexOf(categoryA.slug) - catalogSlugs.indexOf(categoryB.slug)
+/** Servicios de imagen de relleno que usan los productos de prueba. */
+const PLACEHOLDER_IMAGE =
+  /placehold|placeimg|via\.placeholder|dummyimage|example\.(com|org)|img\.example|picsum/i
+
+/** Los productos reales rondan los 250 caracteres; los de prueba traen "asd". */
+const MIN_DESCRIPTION_LENGTH = 60
 
 /**
- * Al ser una API abierta hay productos con la imagen envuelta en comillas o en
- * un array serializado, asi que se limpia antes de pintarla.
+ * Hay productos con la imagen envuelta en comillas o como array serializado.
  */
 const cleanImageUrl = (rawUrl) => {
   if (typeof rawUrl !== 'string') {
@@ -36,22 +42,53 @@ const cleanImageUrl = (rawUrl) => {
   return imageUrl.startsWith('http') ? imageUrl : ''
 }
 
+/**
+ * Descarta los productos de prueba que otros usuarios publican en el sandbox:
+ * los que cuelgan de una categoria inventada, los que apuntan a una imagen de
+ * relleno y los que no traen una descripcion de verdad.
+ */
+const isCatalogProduct = ({ category, images, description }) => {
+  if (!catalogIds.includes(category?.id)) {
+    return false
+  }
+
+  const imageUrl = cleanImageUrl(images?.[0])
+
+  if (!imageUrl || PLACEHOLDER_IMAGE.test(imageUrl)) {
+    return false
+  }
+
+  return (description ?? '').trim().length >= MIN_DESCRIPTION_LENGTH
+}
+
 const normalizeProduct = ({ id, title, description, price, images, category }) => ({
   id,
   title,
   description,
   price,
   imageUrl: cleanImageUrl(images?.[0]),
-  categorySlug: category?.slug ?? '',
-  categoryName: CATALOG_CATEGORY_LABELS[category?.slug] ?? category?.name ?? 'Sin categoría',
+  categoryId: category.id,
+  categoryName: findCatalogCategory(category.id).name,
 })
 
-const normalizeCategory = ({ id, slug, image }) => ({
-  id,
-  slug,
-  image,
-  name: CATALOG_CATEGORY_LABELS[slug],
-})
+/**
+ * A la categoria 1 le cambiaron la imagen por una de placeimg.com, un servicio
+ * que ya no existe. Cuando la que llega no sirve se usa la original.
+ */
+const normalizeCategory = ({ id, image }) => {
+  const category = findCatalogCategory(id)
+  const imageUrl = cleanImageUrl(image)
+  const isUsable = imageUrl && !PLACEHOLDER_IMAGE.test(imageUrl)
+
+  return {
+    id,
+    name: category.name,
+    image: isUsable ? imageUrl : category.image,
+  }
+}
+
+const byCatalogOrder = (categoryA, categoryB) =>
+  catalogIds.indexOf(categoryA.id) - catalogIds.indexOf(categoryB.id)
 
 const requestJson = async (endpoint, signal) => {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, { signal })
@@ -66,11 +103,14 @@ const requestJson = async (endpoint, signal) => {
 export const fetchProducts = async (signal) => {
   const products = await requestJson('/products', signal)
 
-  return products.map(normalizeProduct)
+  return products.filter(isCatalogProduct).map(normalizeProduct)
 }
 
 export const fetchCatalogCategories = async (signal) => {
   const categories = await requestJson('/categories', signal)
 
-  return categories.filter(isCatalogCategory).sort(byCatalogOrder).map(normalizeCategory)
+  return categories
+    .filter(({ id }) => catalogIds.includes(id))
+    .sort(byCatalogOrder)
+    .map(normalizeCategory)
 }

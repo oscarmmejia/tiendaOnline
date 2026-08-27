@@ -19,7 +19,9 @@ const ProductsPage = () => {
 			return products
 		}
 
-		return products.filter((product) => product.categorySlug === selectedCategory)
+		return products.filter(
+			(product) => String(product.categoryId) === selectedCategory,
+		)
 	}, [products, selectedCategory])
 
 	return (
