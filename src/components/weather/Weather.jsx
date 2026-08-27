@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './weather.css'
+import './Weather.css'
 
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
 

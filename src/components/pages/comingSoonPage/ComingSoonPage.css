@@ -1,0 +1,12 @@
+.comingSoonPage {
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding: 6rem 2rem;
+	width: 100%;
+}
+
+@media (max-width: 600px) {
+	.comingSoonPage {
+		padding: 3rem 1rem;
+	}
+}

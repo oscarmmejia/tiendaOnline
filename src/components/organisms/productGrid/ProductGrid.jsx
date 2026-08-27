@@ -1,4 +1,4 @@
-import ProductCard from '../../molecules/ProductCard/ProductCard'
+import ProductCard from '../../molecules/productCard/ProductCard'
 import './ProductGrid.css'
 
 const ProductGrid = ({ products }) => {

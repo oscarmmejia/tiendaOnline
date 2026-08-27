@@ -46,9 +46,10 @@ const normalizeProduct = ({ id, title, description, price, images, category }) =
   categoryName: CATALOG_CATEGORY_LABELS[category?.slug] ?? category?.name ?? 'Sin categoría',
 })
 
-const normalizeCategory = ({ id, slug }) => ({
+const normalizeCategory = ({ id, slug, image }) => ({
   id,
   slug,
+  image,
   name: CATALOG_CATEGORY_LABELS[slug],
 })
 

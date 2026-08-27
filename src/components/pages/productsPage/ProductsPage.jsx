@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import useProductCatalog, { CATALOG_STATUS } from '../../../hooks/useProductCatalog'
 import { ALL_CATEGORIES } from '../../../services/productsApi'
-import PageHeading from '../../molecules/PageHeading/PageHeading'
-import CategoryFilter from '../../molecules/CategoryFilter/CategoryFilter'
-import ProductGrid from '../../organisms/ProductGrid/ProductGrid'
+import PageHeading from '../../molecules/pageHeading/PageHeading'
+import CategoryFilter from '../../molecules/categoryFilter/CategoryFilter'
+import ProductGrid from '../../organisms/productGrid/ProductGrid'
 import './ProductsPage.css'
 
 const PAGE_TITLE = 'Nuestros productos'

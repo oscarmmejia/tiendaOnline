@@ -90,3 +90,7 @@
     font-size: 0.8125rem;
   }
 }
+
+.header__navLinkActive {
+  color: #22d3ee;
+}

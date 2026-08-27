@@ -2,8 +2,10 @@ import { useUsers } from "../../hooks/useUsers";
 import UserCard from "./UserCard";
 import "./Users.css";
 
+const USERS_LIMIT = 8;
+
 const Users = () => {
-    const { users, loading, error } = useUsers(8);
+    const { users, loading, error } = useUsers(USERS_LIMIT);
 
     return (
         <section className="users">
@@ -14,17 +16,22 @@ const Users = () => {
                 compradores de élite y entusiastas de las compras online del futuro.
             </p>
 
-            <div className="usersGrid">
-                {users.map((user) => (
-                    <UserCard
-                        key={user.id}
-                        avatar={user.avatar}
-                        name={user.name}
-                    />
-                ))}
-            </div>
-        </section>
+            {loading && <p className="usersLoading">CONECTANDO...</p>}
 
+            {error && <p className="usersError">{error}</p>}
+
+            {!loading && !error && (
+                <div className="usersGrid">
+                    {users.map((user) => (
+                        <UserCard
+                            key={user.id}
+                            avatar={user.avatar}
+                            name={user.name}
+                        />
+                    ))}
+                </div>
+            )}
+        </section>
     );
 };
 

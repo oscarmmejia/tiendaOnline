@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ROUTE_PATHS } from "../../routes/routePaths";
 import "./Footer.css";
 
 const Footer = () => {
@@ -42,21 +44,21 @@ const Footer = () => {
                 <div className="footerColumn">
                     <h3 className="footerColumnTitle">Sectores</h3>
                     <ul className="footerColumnList">
-                        <li><a href="#">Ropa</a></li>
-                        <li><a href="#">Electrónica</a></li>
-                        <li><a href="#">Muebles</a></li>
-                        <li><a href="#">Calzado</a></li>
-                        <li><a href="#">Misceláneos</a></li>
+                        <li><Link to={ROUTE_PATHS.products}>Ropa</Link></li>
+                        <li><Link to={ROUTE_PATHS.products}>Electrónica</Link></li>
+                        <li><Link to={ROUTE_PATHS.products}>Muebles</Link></li>
+                        <li><Link to={ROUTE_PATHS.products}>Calzado</Link></li>
+                        <li><Link to={ROUTE_PATHS.products}>Misceláneos</Link></li>
                     </ul>
                 </div>
 
                 <div className="footerColumn">
                     <h3 className="footerColumnTitle">Compañía</h3>
                     <ul className="footerColumnList">
-                        <li><a href="#">Nuestra Historia</a></li>
-                        <li><a href="#">El Equipo</a></li>
-                        <li><a href="#">Usuarios</a></li>
-                        <li><a href="#">Vitrina</a></li>
+                        <li><Link to={ROUTE_PATHS.ourStory}>Nuestra Historia</Link></li>
+                        <li><Link to={ROUTE_PATHS.team}>El Equipo</Link></li>
+                        <li><Link to={ROUTE_PATHS.users}>Usuarios</Link></li>
+                        <li><Link to={ROUTE_PATHS.products}>Vitrina</Link></li>
                     </ul>
                 </div>
 

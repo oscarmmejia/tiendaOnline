@@ -1,6 +1,6 @@
-import CategoryTag from '../../atoms/CategoryTag/CategoryTag'
-import ProductImage from '../../atoms/ProductImage/ProductImage'
-import ProductPrice from '../../atoms/ProductPrice/ProductPrice'
+import CategoryTag from '../../atoms/categoryTag/CategoryTag'
+import ProductImage from '../../atoms/productImage/ProductImage'
+import ProductPrice from '../../atoms/productPrice/ProductPrice'
 import './ProductCard.css'
 
 const ProductCard = ({ product }) => {
