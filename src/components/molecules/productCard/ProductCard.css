@@ -1,0 +1,43 @@
+.productCard {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	height: 100%;
+}
+
+.productCardMedia {
+	margin-bottom: 0.5rem;
+	position: relative;
+}
+
+.productCardTag {
+	left: 0.625rem;
+	position: absolute;
+	top: 0.625rem;
+}
+
+.productCardTitle {
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.productCardDescription {
+	color: var(--colorTextMuted);
+	display: -webkit-box;
+	font-family: var(--fontMono);
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	margin: 0;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.productCard .productPrice {
+	margin-top: auto;
+	padding-top: 0.5rem;
+}

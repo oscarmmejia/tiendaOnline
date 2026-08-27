@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.categoryCardList {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 16px;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 24px;
+}
+
+.categoryCard {
+	border: 1px solid;
+	border-radius: 16px;
+	overflow: hidden;
+	padding: 12px;
+	transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.categoryCard:hover {
+	transform: scale(1.015);
+}
+
+.categoryCardCyan {
+	background-color: #00f0ff1a;
+	border-color: #00f0ff;
+}
+
+.categoryCardCyan:hover {
+	box-shadow: 0 0 12px #00f0ff;
+}
+
+.categoryCardPink {
+	background-color: #ff007a1a;
+	border-color: #ff007a;
+}
+
+.categoryCardPink:hover {
+	box-shadow: 0 0 12px #ff007a;
+}
+
+.categoryCardImage {
+	display: block;
+	height: 180px;
+	object-fit: cover;
+	width: 100%;
+  border-radius: 100%;
+}
+
+.categoryCardName {
+	color: #ffffff;
+	font-family: 'Outfit', sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 12px 0 0;
+}
+
+.categoryCardStatus {
+	color: #ffffff;
+	font-family: 'Outfit', sans-serif;
+}
+
+.categoryCardError {
+	color: #ff007a;
+}
+

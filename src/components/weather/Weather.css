@@ -1,0 +1,53 @@
+/* Vive dentro del header, alineado a la derecha junto al menu de navegacion. */
+.weatherWidget {
+	color: var(--colorText);
+	font-family: var(--fontMono);
+	min-width: 5rem;
+}
+
+.weatherSummary {
+	align-items: center;
+	display: flex;
+	gap: 0.125rem;
+	justify-content: flex-end;
+}
+
+.weatherIcon {
+	height: 2.25rem;
+	width: 2.25rem;
+}
+
+.weatherTemperature {
+	font-size: 1.125rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.weatherUnit {
+	align-self: flex-start;
+	font-size: 0.6875rem;
+	margin-top: 0.125rem;
+}
+
+.weatherLoading,
+.weatherError {
+	color: var(--colorTextMuted);
+	font-size: 0.625rem;
+	letter-spacing: 0.05em;
+	line-height: 1.3;
+	max-width: 7.5rem;
+	text-align: right;
+}
+
+.weatherLoading {
+	color: var(--colorCyan);
+}
+
+@media (max-width: 600px) {
+	.weatherSummary,
+	.weatherLoading,
+	.weatherError {
+		justify-content: center;
+		text-align: center;
+	}
+}

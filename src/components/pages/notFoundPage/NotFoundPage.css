@@ -1,0 +1,33 @@
+.notFoundPage {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding: 6rem 2rem;
+	width: 100%;
+}
+
+.notFoundPageLink {
+	border: 1px solid var(--colorCyan);
+	border-radius: 2px;
+	color: var(--colorCyan);
+	font-family: var(--fontMono);
+	font-size: 0.8125rem;
+	letter-spacing: 0.1em;
+	padding: 0.625rem 1.25rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background-color 0.2s ease;
+	width: fit-content;
+}
+
+.notFoundPageLink:hover {
+	background-color: rgba(34, 211, 238, 0.1);
+}
+
+@media (max-width: 600px) {
+	.notFoundPage {
+		padding: 3rem 1rem;
+	}
+}

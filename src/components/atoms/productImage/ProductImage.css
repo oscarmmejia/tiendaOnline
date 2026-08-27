@@ -1,0 +1,19 @@
+.productImage {
+	aspect-ratio: 1 / 1;
+	background-color: var(--colorSurface);
+	border-radius: 6px;
+	display: block;
+	object-fit: cover;
+	width: 100%;
+}
+
+.productImageFallback {
+	align-items: center;
+	border: 1px dashed var(--colorBorder);
+	color: var(--colorTextMuted);
+	display: flex;
+	font-family: var(--fontMono);
+	font-size: 0.75rem;
+	justify-content: center;
+	letter-spacing: 0.2em;
+}
