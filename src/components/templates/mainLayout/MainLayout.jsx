@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import useScrollToTop from '../../../hooks/useScrollToTop'
 import Header from '../../header/Header.jsx'
-import Weather from '../../weather/Weather.jsx'
 import Footer from '../../footer/Footer.jsx'
 
 /**
@@ -13,7 +12,6 @@ const MainLayout = () => {
 	return (
 		<>
 			<Header />
-			<Weather />
 			<main className="app">
 				<Outlet />
 			</main>

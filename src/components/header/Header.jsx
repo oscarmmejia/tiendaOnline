@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { ROUTE_PATHS } from '../../routes/routePaths'
+import Weather from '../weather/Weather.jsx'
 import logoOkyDoky from '../../img/header/okydokyLogo.png'
 import './Header.css'
 
@@ -33,7 +34,9 @@ const Header = () => {
         </ul>
       </nav>
 
-      <div className="header__actions" />
+      <div className="header__actions">
+        <Weather />
+      </div>
     </header>
   )
 }
