@@ -4,7 +4,7 @@
 	gap: 2.5rem;
 	margin: 0 auto;
 	max-width: var(--layoutMaxWidth);
-	padding: 6rem 2rem;
+	padding: 5rem var(--layoutPadding) var(--sectionGap);
 	width: 100%;
 }
 
@@ -28,6 +28,6 @@
 
 @media (max-width: 600px) {
 	.notFoundPage {
-		padding: 3rem 1rem;
+		padding: 3rem var(--layoutPadding) var(--sectionGap);
 	}
 }

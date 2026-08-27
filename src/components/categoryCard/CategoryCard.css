@@ -2,11 +2,12 @@
 
 .categoryCardList {
 	display: grid;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: 1.5rem;
 	margin: 0 auto;
-	max-width: 1200px;
-	padding: 0 24px;
+	max-width: var(--layoutMaxWidth);
+	padding-inline: var(--layoutPadding);
+	padding-bottom: var(--sectionGap);
 }
 
 .categoryCard {

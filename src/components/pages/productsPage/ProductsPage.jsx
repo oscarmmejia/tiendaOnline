@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import useProductCatalog, { CATALOG_STATUS } from '../../../hooks/useProductCatalog'
+import useProductCatalog from '../../../hooks/useProductCatalog'
+import { REQUEST_STATUS } from '../../../constants/requestStatus'
 import { ALL_CATEGORIES } from '../../../services/productsApi'
 import PageHeading from '../../molecules/pageHeading/PageHeading'
 import CategoryFilter from '../../molecules/categoryFilter/CategoryFilter'
@@ -46,17 +47,17 @@ const ProductsPage = () => {
 				onCategoryChange={handleCategoryChange}
 			/>
 
-			{status === CATALOG_STATUS.loading && (
+			{status === REQUEST_STATUS.loading && (
 				<p className="productsPageStatus">Cargando catálogo...</p>
 			)}
 
-			{status === CATALOG_STATUS.error && (
+			{status === REQUEST_STATUS.error && (
 				<p className="productsPageStatus productsPageStatusError">
 					No se pudo cargar el catálogo. Inténtalo de nuevo más tarde.
 				</p>
 			)}
 
-			{status === CATALOG_STATUS.ready && <ProductGrid products={visibleProducts} />}
+			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} />}
 		</section>
 	)
 }

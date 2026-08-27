@@ -11,6 +11,8 @@
 	--colorMagenta: #ff007a;
 
 	--layoutMaxWidth: 80rem;
+	--layoutPadding: 3rem;
+	--sectionGap: 5.5rem;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -33,4 +35,11 @@ body {
 	background-color: var(--colorBackground);
 	color: var(--colorText);
 	font-family: var(--fontDisplay);
+}
+
+@media (max-width: 600px) {
+	:root {
+		--layoutPadding: 1.25rem;
+		--sectionGap: 3.5rem;
+	}
 }

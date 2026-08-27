@@ -1,47 +1,42 @@
 import { useEffect, useState } from 'react'
+import { REQUEST_STATUS } from '../constants/requestStatus'
 import { fetchCatalogCategories, fetchProducts } from '../services/productsApi'
-
-export const CATALOG_STATUS = {
-  loading: 'loading',
-  ready: 'ready',
-  error: 'error',
-}
 
 /**
  * Descarga productos y categorias en paralelo y expone el estado de la peticion
  * para que los componentes solo se ocupen de pintar.
  */
 const useProductCatalog = () => {
-  const [products, setProducts] = useState([])
-  const [categories, setCategories] = useState([])
-  const [status, setStatus] = useState(CATALOG_STATUS.loading)
+	const [products, setProducts] = useState([])
+	const [categories, setCategories] = useState([])
+	const [status, setStatus] = useState(REQUEST_STATUS.loading)
 
-  useEffect(() => {
-    const controller = new AbortController()
+	useEffect(() => {
+		const controller = new AbortController()
 
-    const loadCatalog = async () => {
-      try {
-        const [catalogProducts, catalogCategories] = await Promise.all([
-          fetchProducts(controller.signal),
-          fetchCatalogCategories(controller.signal),
-        ])
+		const loadCatalog = async () => {
+			try {
+				const [catalogProducts, catalogCategories] = await Promise.all([
+					fetchProducts(controller.signal),
+					fetchCatalogCategories(controller.signal),
+				])
 
-        setProducts(catalogProducts)
-        setCategories(catalogCategories)
-        setStatus(CATALOG_STATUS.ready)
-      } catch (error) {
-        if (error.name !== 'AbortError') {
-          setStatus(CATALOG_STATUS.error)
-        }
-      }
-    }
+				setProducts(catalogProducts)
+				setCategories(catalogCategories)
+				setStatus(REQUEST_STATUS.ready)
+			} catch (error) {
+				if (error.name !== 'AbortError') {
+					setStatus(REQUEST_STATUS.error)
+				}
+			}
+		}
 
-    loadCatalog()
+		loadCatalog()
 
-    return () => controller.abort()
-  }, [])
+		return () => controller.abort()
+	}, [])
 
-  return { products, categories, status }
+	return { products, categories, status }
 }
 
 export default useProductCatalog

@@ -114,3 +114,16 @@ export const fetchCatalogCategories = async (signal) => {
     .sort(byCatalogOrder)
     .map(normalizeCategory)
 }
+
+const byPriceDesc = (productA, productB) => productB.price - productA.price
+
+/**
+ * Los productos mas caros del catalogo, de mayor a menor precio.
+ *
+ * @param {number} limit cuantos productos devolver
+ */
+export const fetchTopProducts = async (limit, signal) => {
+  const products = await fetchProducts(signal)
+
+  return [...products].sort(byPriceDesc).slice(0, limit)
+}
