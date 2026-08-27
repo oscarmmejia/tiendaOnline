@@ -5,6 +5,9 @@
 	border-radius: 4px;
 	display: inline-block;
 	font-family: 'Geist Mono', monospace;
+	font-size: 10px;
+	line-height: 1.2;
+	margin: 0 0 12px;
 	padding: 4px 8px;
 }
 
@@ -23,9 +26,15 @@
 .titleDescriptionTitle {
 	color: #ffffff;
 	font-family: 'Outfit', sans-serif;
+	font-size: 32px;
+	line-height: 1.1;
+	margin: 0 0 8px;
 }
 
 .titleDescriptionDescription {
 	color: #8a95a5;
 	font-family: 'Geist', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
 }
