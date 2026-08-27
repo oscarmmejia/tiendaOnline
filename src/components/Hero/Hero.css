@@ -1,0 +1,130 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 32rem;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-color: #050712;
+  border-top: 2px solid rgba(16, 211, 238, 0.45);
+}
+
+.heroBackground {
+  position: absolute;
+  z-index: -3;
+  inset: -0.75rem;
+  width: calc(100% + 1.5rem);
+  height: calc(100% + 1.5rem);
+  object-fit: cover;
+  filter: blur(4px) brightness(0.42) saturate(0.82);
+  transform: scale(1.015);
+}
+
+.heroShade {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 5, 15, 0.42) 0%,
+      rgba(5, 7, 18, 0.2) 44%,
+      rgba(3, 6, 15, 0.7) 100%
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(18, 22, 48, 0.08) 0%,
+      rgba(3, 5, 15, 0.4) 80%
+    );
+}
+
+.heroContent {
+  width: min(90%, 42rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
+  transform: translateY(2rem);
+}
+
+.protocolLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #0ce7f4;
+  font-family: "Courier New", monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.75rem rgba(12, 231, 244, 0.7);
+}
+
+.protocolLine {
+  width: 1.4rem;
+  height: 0.15rem;
+  border-radius: 999px;
+}
+
+.protocolLineCyan {
+  background-color: #0ce7f4;
+  box-shadow: 0 0 0.65rem rgba(12, 231, 244, 0.85);
+}
+
+.protocolLinePink {
+  background-color: #f4008e;
+  box-shadow: 0 0 0.65rem rgba(244, 0, 142, 0.8);
+}
+
+.heroTitle {
+  margin: 2.85rem 0 0;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(3.25rem, 7.25vw, 4.75rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-shadow:
+    0 0 0.4rem rgba(255, 255, 255, 0.8),
+    0 0 1.5rem rgba(129, 92, 246, 0.32);
+}
+
+.heroDescription {
+  max-width: 34rem;
+  margin: 2.7rem 0 0;
+  color: #a4a9b8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 0.75rem rgba(0, 0, 0, 0.95);
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    min-height: 29rem;
+  }
+
+  .heroContent {
+    width: min(88%, 32rem);
+  }
+
+  .protocolLabel {
+    gap: 0.65rem;
+    font-size: 0.56rem;
+  }
+
+  .protocolLine {
+    width: 1rem;
+  }
+
+  .heroTitle {
+    margin-top: 2.25rem;
+  }
+
+  .heroDescription {
+    margin-top: 2.25rem;
+    font-size: 0.9rem;
+  }
+}
