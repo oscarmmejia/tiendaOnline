@@ -17,6 +17,11 @@
 	transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
+.categoryCardLink {
+	color: inherit;
+	text-decoration: none;
+}
+
 .categoryCard:hover {
 	transform: scale(1.015);
 }

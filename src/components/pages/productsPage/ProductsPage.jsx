@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import useProductCatalog, { CATALOG_STATUS } from '../../../hooks/useProductCatalog'
 import { ALL_CATEGORIES } from '../../../services/productsApi'
 import PageHeading from '../../molecules/pageHeading/PageHeading'
@@ -10,9 +11,20 @@ const PAGE_TITLE = 'Nuestros productos'
 const PAGE_DESCRIPTION =
 	'Catálogo de tecnología, indumentaria, calzado, muebles y más. Disponibles para adquisición inmediata en el nexus de OKYDOKY.'
 
+const getCategoryFromSearchParams = (searchParams) => {
+	const categoryId = searchParams.get('categoryId')
+
+	return categoryId && /^[1-5]$/.test(categoryId) ? categoryId : ALL_CATEGORIES
+}
+
 const ProductsPage = () => {
 	const { products, categories, status } = useProductCatalog()
-	const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
+	const [searchParams, setSearchParams] = useSearchParams()
+	const selectedCategory = getCategoryFromSearchParams(searchParams)
+
+	const handleCategoryChange = (categoryId) => {
+		setSearchParams(categoryId === ALL_CATEGORIES ? {} : { categoryId })
+	}
 
 	const visibleProducts = useMemo(() => {
 		if (selectedCategory === ALL_CATEGORIES) {
@@ -31,7 +43,7 @@ const ProductsPage = () => {
 			<CategoryFilter
 				categories={categories}
 				selectedCategory={selectedCategory}
-				onCategoryChange={setSelectedCategory}
+				onCategoryChange={handleCategoryChange}
 			/>
 
 			{status === CATALOG_STATUS.loading && (

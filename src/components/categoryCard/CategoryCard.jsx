@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchCatalogCategories } from '../../services/productsApi'
+import { Link } from 'react-router-dom'
+import { ROUTE_PATHS } from '../../routes/routePaths'
 import './CategoryCard.css'
 
 const CategoryCard = () => {
@@ -38,13 +40,18 @@ const CategoryCard = () => {
 	return (
 		<section className="categoryCardList" aria-label="Categorías">
 			{categories.map(({ id, name, image }, index) => (
-				<article
-					className={`categoryCard ${index % 2 === 0 ? 'categoryCardCyan' : 'categoryCardPink'}`}
+				<Link
+					className="categoryCardLink"
 					key={id}
+					to={`${ROUTE_PATHS.products}?categoryId=${id}`}
 				>
-					<img className="categoryCardImage" src={image} alt={name} />
-					<h3 className="categoryCardName">{name}</h3>
-				</article>
+					<article
+						className={`categoryCard ${index % 2 === 0 ? 'categoryCardCyan' : 'categoryCardPink'}`}
+					>
+						<img className="categoryCardImage" src={image} alt={name} />
+						<h3 className="categoryCardName">{name}</h3>
+					</article>
+				</Link>
 			))}
 		</section>
 	)
