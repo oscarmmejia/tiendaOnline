@@ -7,12 +7,6 @@ const UserCard = ({ avatar, name, id }) => {
         <img src={avatar} alt={name} className="userCardAvatar" />
       </div>
       <h3 className="userCardName">{name}</h3>
-      <div className="userCardStats">
-        <span className="userCardStat">
-          <span className="userCardStatIcon userCardStatIconStar"></span>
-          {id}
-        </span>
-      </div>
     </div>
   );
 };

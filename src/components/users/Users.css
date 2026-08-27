@@ -60,25 +60,6 @@
     }
 }
 
-.usersLoadMore {
-    align-self: center;
-    margin-top: 3rem;
-    background: transparent;
-    border: 1px solid #22d3ee;
-    color: #22d3ee;
-    font-family: monospace;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    padding: 0.75rem 1.75rem;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.usersLoadMore:hover {
-    background-color: rgba(34, 211, 238, 0.1);
-}
-
 .usersLoading {
     color: #22d3ee;
     font-family: monospace;

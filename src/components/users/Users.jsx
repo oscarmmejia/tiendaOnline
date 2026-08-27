@@ -23,10 +23,8 @@ const Users = () => {
                         />
                     ))}
                 </div>
-            
+            </section>
 
-            <button className="usersLoadMore">&gt; CARGAR MÁS USUARIOS</button>
-        </section>
     );
 };
 
