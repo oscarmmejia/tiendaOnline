@@ -8,7 +8,7 @@ const Users = () => {
     return (
         <section className="users">
             <span className="usersTag">&gt; NET_RUNNER_LINK</span>
-            <h1 className="usersTitle">DIRECTORIO DE USUARIOS</h1>
+            <h1 className="usersTitle">NUESTROS CLIENTES</h1>
             <p className="usersDescription">
                 Conectando nodos en la red OKYDOKY. Explora perfiles verificados de
                 compradores de élite y entusiastas de las compras online del futuro.
