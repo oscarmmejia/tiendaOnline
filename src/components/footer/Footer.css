@@ -1,186 +1,193 @@
 .footerContainer {
-    background-color: #05070d;
-    padding: 4rem 2rem 1.5rem;
+  background-color: #05070d;
+  padding: 4rem 2rem 1.5rem;
 }
 
 .footerContent {
-    max-width: 80rem;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
 }
 
 @media (max-width: 768px) {
-    .footerContent {
-        grid-template-columns: 1fr;
-    }
+  .footerContent {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Marca */
-.footerLeft {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .footerLogo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
 }
 
-.footerLogoIcono {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    background-color: #1e293b;
-    border: 1px solid rgba(34, 211, 238, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #22d3ee;
-    font-size: 1rem;
+.footerLogoIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: #1e293b;
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22d3ee;
+  font-size: 1rem;
 }
 
 .logoOky {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .logoDoky {
-    color: #22d3ee;
+  color: #22d3ee;
 }
 
 .footerText {
-    color: #94a3b8;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    max-width: 20rem;
-    margin: 0;
+  color: #94a3b8;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 20rem;
+  margin: 0;
 }
 
-.footerRedes {
-    display: flex;
-    gap: 0.75rem;
+.footerSocials {
+  display: flex;
+  gap: 0.75rem;
 }
 
-.footerRedIcono {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: #0f172a;
-    border: 1px solid #334155;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #22d3ee;
-    transition: border-color 0.2s ease;
+.footerSocialIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22d3ee;
+  transition: border-color 0.2s ease;
 }
 
-.footerRedIcono:hover {
-    border-color: #22d3ee;
+.footerSocialIcon:hover {
+  border-color: #22d3ee;
 }
 
-/* Columnas */
 .footerColumn {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.footerColumnTitulo {
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.875rem;
-    margin: 0;
+.footerColumnTitle {
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
-.footerColumnLista {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.footerColumnList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.footerColumnLista a {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    transition: color 0.2s ease;
+.footerColumnList a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease;
 }
 
-.footerColumnLista a:hover {
-    color: #22d3ee;
+.footerColumnList a:hover {
+  color: #22d3ee;
 }
 
-/* Estado del nodo */
 .footerBadges {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .footerBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgba(34, 211, 238, 0.5);
-    color: #22d3ee;
-    font-family: monospace;
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
-    border-radius: 2px;
-    width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  color: #22d3ee;
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 2px;
+  width: fit-content;
 }
 
-.footerBadgePunto {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: #22d3ee;
+.footerBadgeDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #22d3ee;
 }
 
-/* Línea y pie */
-.footerLinea {
-    max-width: 80rem;
-    margin: 3rem auto 0;
-    height: 1px;
-    background: linear-gradient(to right, #22d3ee, #1e293b, transparent);
+.footerDividers {
+  max-width: 80rem;
+  margin: 3rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footerDividerCyan {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, #22d3ee, transparent);
+}
+
+.footerDividerMagenta {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, #ec4899, transparent);
 }
 
 .footerVersion {
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    color: #64748b;
-    font-family: monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding: 0;
+  color: #64748b;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 .footerBottom {
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    color: #64748b;
-    font-size: 0.875rem;
-    padding-top: 0.5rem;
-    flex-wrap: wrap;
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  padding-top: 4.5rem;
+  flex-wrap: wrap;
 }
 
 .footerBypass {
-    font-family: monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #22d3ee;
 }
