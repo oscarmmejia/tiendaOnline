@@ -1,18 +1,36 @@
 :root {
-    --fontDisplay: 'Sora', system-ui, sans-serif;
-    --fontMono: 'Space Mono', 'Courier New', Courier, monospace;
+	--fontDisplay: 'Sora', system-ui, sans-serif;
+	--fontMono: 'Space Mono', 'Courier New', Courier, monospace;
 
-    --colorBackground: #131313;
-    --colorSurface: #0f172a;
-    --colorBorder: #334155;
-    --colorText: #ffffff;
-    --colorTextMuted: #8a95a5;
-    --colorCyan: #22d3ee;
-    --colorMagenta: #ff007a;
+	--colorBackground: #05070d;
+	--colorSurface: #0f172a;
+	--colorBorder: #334155;
+	--colorText: #ffffff;
+	--colorTextMuted: #8a95a5;
+	--colorCyan: #22d3ee;
+	--colorMagenta: #ff007a;
 
-    --layoutMaxWidth: 80rem;
+	--layoutMaxWidth: 80rem;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
 }
 
-body{
-    margin:0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+#root {
+	min-width: 320px;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--colorBackground);
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
 }
