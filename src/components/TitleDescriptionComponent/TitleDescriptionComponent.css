@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
+.titleDescriptionSubtitle {
+	border: 1px solid;
+	border-radius: 4px;
+	display: inline-block;
+	font-family: 'Geist Mono', monospace;
+	padding: 4px 8px;
+}
+
+.titleDescriptionSubtitlePink {
+	background-color: #ff007a1a;
+	border-color: #ff007a;
+	color: #ff007a;
+}
+
+.titleDescriptionSubtitleCyan {
+	background-color: #00f0ff1a;
+	border-color: #00f0ff;
+	color: #00f0ff;
+}
+
+.titleDescriptionTitle {
+	color: #ffffff;
+	font-family: 'Outfit', sans-serif;
+}
+
+.titleDescriptionDescription {
+	color: #8a95a5;
+	font-family: 'Geist', sans-serif;
+}
