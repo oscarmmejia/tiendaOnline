@@ -1,3 +1,18 @@
+:root {
+    --fontDisplay: 'Sora', system-ui, sans-serif;
+    --fontMono: 'Space Mono', 'Courier New', Courier, monospace;
+
+    --colorBackground: #131313;
+    --colorSurface: #0f172a;
+    --colorBorder: #334155;
+    --colorText: #ffffff;
+    --colorTextMuted: #8a95a5;
+    --colorCyan: #22d3ee;
+    --colorMagenta: #ff007a;
+
+    --layoutMaxWidth: 80rem;
+}
+
 body{
     margin:0;
 }
