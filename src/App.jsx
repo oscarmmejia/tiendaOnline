@@ -1,5 +1,6 @@
 import './styles/App.css'
 import Hero from "./components/Hero/Hero";
+import ProductsComponent from "./components/ProductsComponent/ProductsComponent";
 import Footer from './components/footer/Footer.jsx'
 import CategoryCard from './components/CategoryCard/CategoryCard.jsx'
 import TitleDescriptionComponent from './components/TitleDescriptionComponent/TitleDescriptionComponent.jsx'
@@ -10,6 +11,7 @@ function App() {
 	return (
 		<main>
 			<Hero />
+			<ProductsComponent />
 			<Weather />
 			<TitleDescriptionComponent
 				subtitle='QUANTUM DEPARTMENT'
