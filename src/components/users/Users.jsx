@@ -14,16 +14,16 @@ const Users = () => {
                 compradores de élite y entusiastas de las compras online del futuro.
             </p>
 
-                <div className="usersGrid">
-                    {users.map((user) => (
-                        <UserCard
-                            key={user.id}
-                            avatar={user.avatar}
-                            name={user.name}
-                        />
-                    ))}
-                </div>
-            </section>
+            <div className="usersGrid">
+                {users.map((user) => (
+                    <UserCard
+                        key={user.id}
+                        avatar={user.avatar}
+                        name={user.name}
+                    />
+                ))}
+            </div>
+        </section>
 
     );
 };

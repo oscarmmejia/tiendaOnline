@@ -1,8 +1,8 @@
 import './styles/App.css'
 import Footer from './components/footer/Footer.jsx'
-import CategoryCard from './components/CategoryCard/CategoryCard.jsx'
-import TitleDescriptionComponent from './components/TitleDescriptionComponent/TitleDescriptionComponent.jsx'
-import Weather from './components/wather/weather.jsx'
+import CategoryCard from './components/categoryCard/CategoryCard.jsx'
+import TitleDescriptionComponent from './components/titleDescriptionComponent/TitleDescriptionComponent.jsx'
+import Weather from './components/wather/Weather.jsx'
 import Users from "./components/users/Users";
 
 function App() {

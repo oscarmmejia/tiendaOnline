@@ -191,3 +191,8 @@
   letter-spacing: 0.1em;
   color: #22d3ee;
 }
+
+.socialIcon {
+  width: 18px;
+  height: 18px;
+}
