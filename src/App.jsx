@@ -1,4 +1,5 @@
 import './styles/App.css'
+import Hero from "./components/Hero/Hero";
 import Footer from './components/footer/Footer.jsx'
 import CategoryCard from './components/categoryCard/CategoryCard.jsx'
 import TitleDescriptionComponent from './components/titleDescriptionComponent/TitleDescriptionComponent.jsx'
@@ -8,6 +9,7 @@ import Users from "./components/users/Users";
 function App() {
 	return (
 		<main>
+			<Hero />
 			<Weather />
 			<TitleDescriptionComponent
 				subtitle='QUANTUM DEPARTMENT'
