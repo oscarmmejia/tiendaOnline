@@ -59,7 +59,6 @@ function Weather() {
 				<span className="weather-temperature">{Math.round(weather.main.temp)}</span>
 				<span className="weather-unit">°C</span>
 			</div>
-			<p className="weather-condition">{weatherType.description}</p>
 		</aside>
 	)
 }

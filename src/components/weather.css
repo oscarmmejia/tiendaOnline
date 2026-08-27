@@ -3,6 +3,5 @@
 .weather-icon { width: 48px; height: 48px; margin-left: -5px; }
 .weather-temperature { font-size: 28px; font-weight: 300; line-height: 1; }
 .weather-unit { align-self: flex-start; margin-top: 3px; font-size: 12px; }
-.weather-condition { margin: 0 0 0 43px; overflow: hidden; color: #68777b; font-size: 11px; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
 .weather-loading, .weather-error { display: grid; place-items: center; text-align: center; font-size: 11px; }
 @media (max-width: 480px) { .weather-widget { top: 8px; right: 8px; } }

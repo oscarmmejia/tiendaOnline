@@ -1,3 +1,12 @@
-import Weather from './assets/weather.jsx'
+import './App.css'
+import Weather from './components/weather.jsx'
 
-export default Weather
+function App() {
+	return (
+		<main>
+			<Weather />
+		</main>
+	)
+}
+
+export default App
