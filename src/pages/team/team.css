@@ -1,4 +1,4 @@
-.team-main {
+.teamMain {
 	width: 100%;
 	max-width: none;
 	margin: 0 auto;
@@ -6,14 +6,14 @@
 	color: #e8f8fa;
 }
 
-.team-hero {
+.teamHero {
 	width: min(100%, 1100px);
 	margin: 0 auto;
 	padding: 24px 20px 26px;
 	text-align: center;
 }
 
-.team-eyebrow {
+.teamEyebrow {
 	display: inline-block;
 	margin: 0 0 18px;
 	border: 1px solid #71366d;
@@ -25,7 +25,7 @@
 	letter-spacing: .14em;
 }
 
-.team-hero h1 {
+.teamHero h1 {
 	margin: 0;
 	color: #c9ffff;
 	font-size: clamp(32px, 6vw, 58px);
@@ -34,7 +34,7 @@
 	text-shadow: 0 0 8px rgba(111, 255, 255, .65);
 }
 
-.team-intro {
+.teamIntro {
 	max-width: 580px;
 	margin: 18px auto 0;
 	color: #8fa6ac;
@@ -42,7 +42,7 @@
 	line-height: 1.45;
 }
 
-.team-grid {
+.teamGrid {
 	width: min(100%, 1100px);
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -51,20 +51,20 @@
 	padding: 0 0 10px;
 }
 
-.team-card {
+.teamCard {
 	min-width: 0;
 	border: 1px solid #202832;
 	background: #17191d;
 }
 
-.team-image-wrap {
+.teamImageWrap {
 	position: relative;
 	aspect-ratio: 1.45;
 	overflow: hidden;
 	background: #10151c;
 }
 
-.team-image {
+.teamImage {
 	position: static;
 	display: block;
 	width: 100%;
@@ -73,15 +73,15 @@
 	object-position: center;
 }
 
-.team-image-first {
+.teamImageFirst {
 	object-position: center 18%;
 }
 
-.team-image-fourth {
+.teamImageFourth {
 	object-position: center 72%;
 }
 
-.team-level {
+.teamLevel {
 	position: absolute;
 	top: 8px;
 	left: 8px;
@@ -93,17 +93,17 @@
 	letter-spacing: .1em;
 }
 
-.team-card-content {
+.teamCardContent {
 	padding: 12px;
 }
 
-.team-card h2 {
+.teamCard h2 {
 	margin: 0;
 	color: #f1f5f6;
 	font-size: 22px;
 }
 
-.team-role {
+.teamRole {
 	margin: 4px 0 12px;
 	color: #d84ec1;
 	font-size: 8px;
@@ -111,7 +111,7 @@
 	letter-spacing: .12em;
 }
 
-.team-description {
+.teamDescription {
 	min-height: 58px;
 	margin: 0;
 	color: #a5afb5;
@@ -119,14 +119,14 @@
 	line-height: 1.45;
 }
 
-.team-tags {
+.teamTags {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 6px;
 	margin-top: 12px;
 }
 
-.team-tags span {
+.teamTags span {
 	border: 1px solid #313941;
 	padding: 4px 6px;
 	color: #76838a;
@@ -135,15 +135,15 @@
 }
 
 @media (max-width: 700px) {
-	.team-main {
+	.teamMain {
 		padding: 20px 12px 45px;
 	}
 
-	.team-grid {
+	.teamGrid {
 		grid-template-columns: 1fr;
 	}
 
-	.team-description {
+	.teamDescription {
 		min-height: auto;
 	}
 }

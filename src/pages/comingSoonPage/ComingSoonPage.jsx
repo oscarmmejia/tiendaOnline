@@ -1,4 +1,4 @@
-import PageHeading from '../../molecules/pageHeading/PageHeading'
+import PageHeading from '../../components/molecules/pageHeading/PageHeading'
 import './ComingSoonPage.css'
 
 const ComingSoonPage = ({ title }) => {

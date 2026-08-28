@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react'
 import { REQUEST_STATUS } from '../constants/requestStatus'
 import { fetchCatalogCategories, fetchProducts } from '../services/productsApi'
 
-/**
- * Descarga productos y categorias en paralelo y expone el estado de la peticion
- * para que los componentes solo se ocupen de pintar.
- */
 const useProductCatalog = () => {
 	const [products, setProducts] = useState([])
 	const [categories, setCategories] = useState([])

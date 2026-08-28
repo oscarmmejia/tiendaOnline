@@ -1,7 +1,3 @@
-/*
- * auto-fill reparte tantas columnas como quepan en el ancho disponible y deja
- * que las filas crezcan con el total de productos que devuelve la API.
- */
 .productGrid {
 	display: grid;
 	gap: 3.5rem 2.25rem;
