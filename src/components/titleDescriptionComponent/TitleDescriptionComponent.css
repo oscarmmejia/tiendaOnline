@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&family=Geist:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
-/*
- * Margen superior amplio para separarse del bloque anterior y uno pequeño
- * abajo, para que el titulo quede pegado a su propio contenido.
- */
 .titleDescription {
 	margin: var(--sectionGap) auto 2rem;
 	max-width: var(--layoutMaxWidth);

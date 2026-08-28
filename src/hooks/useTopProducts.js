@@ -2,11 +2,6 @@ import { useEffect, useState } from 'react'
 import { REQUEST_STATUS } from '../constants/requestStatus'
 import { fetchTopProducts } from '../services/productsApi'
 
-/**
- * Descarga los productos mas caros del catalogo.
- *
- * @param {number} limit cuantos productos devolver
- */
 const useTopProducts = (limit) => {
 	const [products, setProducts] = useState([])
 	const [status, setStatus] = useState(REQUEST_STATUS.loading)

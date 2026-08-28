@@ -1,10 +1,5 @@
 const API_URL = "https://api.escuelajs.co/api/v1/users";
 
-/**
- * @param {number} limit
- * @param {AbortSignal} [signal]
- * @returns {Promise<Object[]>} 
- */
 export async function fetchUsers(limit = 40, signal) {
     const response = await fetch(`${API_URL}?limit=${limit}`, { signal });
 
@@ -15,11 +10,6 @@ export async function fetchUsers(limit = 40, signal) {
     const data = await response.json();
     return data.map(mapUser);
 }
-
-/**
- * @param {Object} apiUser 
- * @returns {Object} 
- */
 
 function mapUser(apiUser) {
     return {

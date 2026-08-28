@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import PageHeading from '../../molecules/pageHeading/PageHeading'
-import { ROUTE_PATHS } from '../../../routes/routePaths'
+import PageHeading from '../../components/molecules/pageHeading/PageHeading'
+import { ROUTE_PATHS } from '../../routes/routePaths'
 import './NotFoundPage.css'
 
 const NotFoundPage = () => {

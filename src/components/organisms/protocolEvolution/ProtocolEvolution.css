@@ -44,7 +44,6 @@
 	position: relative;
 }
 
-/* Halo de color en la esquina, del tono de cada protocolo. */
 .protocolCard::after {
 	content: '';
 	height: 12rem;

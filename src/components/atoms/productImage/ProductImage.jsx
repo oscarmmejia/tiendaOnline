@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import './ProductImage.css'
 
-/**
- * Parte de los productos del sandbox apuntan a imagenes caidas, asi que se
- * muestra un marcador de posicion en lugar del icono de imagen rota.
- */
 const ProductImage = ({ src, alt }) => {
 	const [hasFailed, setHasFailed] = useState(false)
 

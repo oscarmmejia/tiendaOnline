@@ -1,6 +1,6 @@
-import ourStoryHero from '../../../img/ourStory/ourStoryHero.webp'
-import ourStoryOrigin from '../../../img/ourStory/ourStoryOrigin.webp'
-import ProtocolEvolution from '../../organisms/protocolEvolution/ProtocolEvolution.jsx'
+import ourStoryHero from '../../img/ourStory/ourStoryHero.webp'
+import ourStoryOrigin from '../../img/ourStory/ourStoryOrigin.webp'
+import ProtocolEvolution from '../../components/organisms/protocolEvolution/ProtocolEvolution.jsx'
 import './OurStoryPage.css'
 
 const OurStoryPage = () => {
