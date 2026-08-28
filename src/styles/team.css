@@ -1,0 +1,149 @@
+.team-main {
+	width: 100%;
+	max-width: none;
+	margin: 0 auto;
+	padding: 34px 20px 72px;
+	color: #e8f8fa;
+}
+
+.team-hero {
+	width: min(100%, 1100px);
+	margin: 0 auto;
+	padding: 24px 20px 26px;
+	text-align: center;
+}
+
+.team-eyebrow {
+	display: inline-block;
+	margin: 0 0 18px;
+	border: 1px solid #71366d;
+	border-radius: 10px;
+	padding: 4px 12px;
+	color: #e28bd5;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: .14em;
+}
+
+.team-hero h1 {
+	margin: 0;
+	color: #c9ffff;
+	font-size: clamp(32px, 6vw, 58px);
+	letter-spacing: .02em;
+	line-height: 1;
+	text-shadow: 0 0 8px rgba(111, 255, 255, .65);
+}
+
+.team-intro {
+	max-width: 580px;
+	margin: 18px auto 0;
+	color: #8fa6ac;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+.team-grid {
+	width: min(100%, 1100px);
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin: 34px auto 0;
+	padding: 0 0 10px;
+}
+
+.team-card {
+	min-width: 0;
+	border: 1px solid #202832;
+	background: #17191d;
+}
+
+.team-image-wrap {
+	position: relative;
+	aspect-ratio: 1.45;
+	overflow: hidden;
+	background: #10151c;
+}
+
+.team-image {
+	position: static;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.team-image-first {
+	object-position: center 18%;
+}
+
+.team-image-fourth {
+	object-position: center 72%;
+}
+
+.team-level {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	border: 1px solid rgba(66, 220, 255, .55);
+	padding: 4px 7px;
+	color: #80eaff;
+	background: rgba(10, 30, 44, .75);
+	font-size: 8px;
+	letter-spacing: .1em;
+}
+
+.team-card-content {
+	padding: 12px;
+}
+
+.team-card h2 {
+	margin: 0;
+	color: #f1f5f6;
+	font-size: 22px;
+}
+
+.team-role {
+	margin: 4px 0 12px;
+	color: #d84ec1;
+	font-size: 8px;
+	font-weight: 700;
+	letter-spacing: .12em;
+}
+
+.team-description {
+	min-height: 58px;
+	margin: 0;
+	color: #a5afb5;
+	font-size: 10px;
+	line-height: 1.45;
+}
+
+.team-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 12px;
+}
+
+.team-tags span {
+	border: 1px solid #313941;
+	padding: 4px 6px;
+	color: #76838a;
+	font-family: monospace;
+	font-size: 8px;
+}
+
+@media (max-width: 700px) {
+	.team-main {
+		padding: 20px 12px 45px;
+	}
+
+	.team-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.team-description {
+		min-height: auto;
+	}
+}
