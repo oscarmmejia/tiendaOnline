@@ -1,10 +1,9 @@
-import Footer from '../../footer/Footer.jsx'
-import memberOne from '../../img/team/teamMember1.png'
-import memberTwo from '../../img/team/teamMember2.png'
-import memberThree from '../../img/team/teamMember3.png'
-import memberFour from '../../img/team/teamMember4.png'
-import memberFive from '../../img/team/teamMember5.png'
-import '../../styles/team.css'
+import memberOne from '../../../img/team/teamMember1.png'
+import memberTwo from '../../../img/team/teamMember2.png'
+import memberThree from '../../../img/team/teamMember3.png'
+import memberFour from '../../../img/team/teamMember4.png'
+import memberFive from '../../../img/team/teamMember5.png'
+import '../../../styles/team.css'
 
 const teamMembers = [
 	{
@@ -78,7 +77,6 @@ function Team() {
 					))}
 				</section>
 			</main>
-			<Footer />
 		</>
 	)
 }

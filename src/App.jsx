@@ -20,10 +20,6 @@ const App = () => {
 					<Route path={ROUTE_PATHS.users} element={<Users />} />
 					<Route path={ROUTE_PATHS.team} element={<Team />} />
 					<Route path={ROUTE_PATHS.ourStory} element={<OurStoryPage />} />
-					<Route
-						path={ROUTE_PATHS.sellers}
-						element={<ComingSoonPage title="Vendedores" />}
-					/>
 					<Route path="*" element={<NotFoundPage />} />
 				</Route>
 			</Routes>

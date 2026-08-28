@@ -9,7 +9,7 @@ const navigationLinks = [
   { id: 'productos', label: 'PRODUCTOS', to: ROUTE_PATHS.products },
   { id: 'nuestraHistoria', label: 'NUESTRA HISTORIA', to: ROUTE_PATHS.ourStory },
   { id: 'usuarios', label: 'USUARIOS', to: ROUTE_PATHS.users },
-  { id: 'vendedores', label: 'VENDEDORES', to: ROUTE_PATHS.sellers },
+  { id: 'equipo', label: 'EQUIPO', to: ROUTE_PATHS.team },
 ]
 
 const buildNavLinkClass = ({ isActive }) =>
