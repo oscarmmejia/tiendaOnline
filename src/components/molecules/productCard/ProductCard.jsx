@@ -5,8 +5,8 @@ import ProductPrice from '../../atoms/productPrice/ProductPrice'
 import ProductEditModal from '../productEditModal/ProductEditModal'
 import './ProductCard.css'
 
-const ProductCard = ({ product }) => {
-	const { title, description, price, imageUrl, categoryName } = product
+const ProductCard = ({ product, onProductUpdated }) => {
+	const { id, title, description, price, imageUrl, categoryName } = product
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
 	const handleOpenEditModal = () => {
@@ -14,6 +14,11 @@ const ProductCard = ({ product }) => {
 	}
 
 	const handleCloseEditModal = () => {
+		setIsEditModalOpen(false)
+	}
+
+	const handleSuccess = () => {
+		if (onProductUpdated) onProductUpdated()
 		setIsEditModalOpen(false)
 	}
 
@@ -39,7 +44,12 @@ const ProductCard = ({ product }) => {
 				</button>
 			</article>
 
-			<ProductEditModal isOpen={isEditModalOpen} onClose={handleCloseEditModal} />
+			<ProductEditModal
+				isOpen={isEditModalOpen}
+				onClose={handleCloseEditModal}
+				productId={id}
+				onSuccess={handleSuccess}
+			/>
 		</>
 	)
 }

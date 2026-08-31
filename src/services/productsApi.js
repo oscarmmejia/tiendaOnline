@@ -77,6 +77,26 @@ const requestJson = async (endpoint, signal) => {
   return data
 }
 
+export const fetchProductById = async (id, signal) => {
+  const data = await requestJson(`/products/${id}`, signal)
+
+  return {
+    id: data.id,
+    title: data.title ?? '',
+    slug: data.slug ?? '',
+    price: data.price ?? 0,
+    description: data.description ?? '',
+    category: data.category ?? null,
+    images: Array.isArray(data.images) ? data.images.map(cleanImageUrl).filter(Boolean) : [],
+  }
+}
+
+export const updateProduct = async (id, payload) => {
+  const { data } = await httpClient.put(`${API_BASE_URL}/products/${id}`, payload)
+
+  return data
+}
+
 export const fetchProducts = async (signal) => {
   const products = await requestJson('/products', signal)
 

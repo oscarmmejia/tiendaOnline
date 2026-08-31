@@ -19,7 +19,7 @@ const getCategoryFromSearchParams = (searchParams) => {
 }
 
 const ProductsPage = () => {
-	const { products, categories, status } = useProductCatalog()
+	const { products, categories, status, refresh } = useProductCatalog()
 	const [searchParams, setSearchParams] = useSearchParams()
 	const selectedCategory = getCategoryFromSearchParams(searchParams)
 
@@ -57,7 +57,7 @@ const ProductsPage = () => {
 				</p>
 			)}
 
-			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} />}
+			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} onProductUpdated={refresh} />}
 		</section>
 	)
 }
