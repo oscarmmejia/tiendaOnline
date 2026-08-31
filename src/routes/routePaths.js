@@ -3,6 +3,5 @@ export const ROUTE_PATHS = {
 	products: '/productos',
 	ourStory: '/nuestra-historia',
 	users: '/usuarios',
-	sellers: '/vendedores',
 	team: '/equipo',
 }

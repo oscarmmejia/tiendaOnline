@@ -1,3 +1,5 @@
+import { httpClient } from './httpClient'
+
 const API_BASE_URL = 'https://api.escuelajs.co/api/v1'
 
 export const ALL_CATEGORIES = 'all'
@@ -70,13 +72,9 @@ const byCatalogOrder = (categoryA, categoryB) =>
   catalogIds.indexOf(categoryA.id) - catalogIds.indexOf(categoryB.id)
 
 const requestJson = async (endpoint, signal) => {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, { signal })
+  const { data } = await httpClient.get(`${API_BASE_URL}${endpoint}`, { signal })
 
-  if (!response.ok) {
-    throw new Error(`La API respondió ${response.status}`)
-  }
-
-  return response.json()
+  return data
 }
 
 export const fetchProducts = async (signal) => {

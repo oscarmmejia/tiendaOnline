@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { REQUEST_STATUS } from '../constants/requestStatus'
+import { isRequestCanceled } from '../services/httpClient'
 import { fetchCatalogCategories, fetchProducts } from '../services/productsApi'
 
 const useProductCatalog = () => {
@@ -21,7 +22,7 @@ const useProductCatalog = () => {
 				setCategories(catalogCategories)
 				setStatus(REQUEST_STATUS.ready)
 			} catch (error) {
-				if (error.name !== 'AbortError') {
+				if (!isRequestCanceled(error)) {
 					setStatus(REQUEST_STATUS.error)
 				}
 			}

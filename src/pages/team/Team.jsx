@@ -48,36 +48,34 @@ const teamMembers = [
 	},
 ]
 
-function Team() {
+const Team = () => {
 	return (
-		<>
-			<main className="teamMain">
-				<section className="teamHero">
-					<p className="teamEyebrow">OPERATIVOS DE RED</p>
-					<h1>NUESTRO EQUIPO</h1>
-					<p className="teamIntro">Los arquitectos del mañana. Nuestro sindicato de especialistas en hardware, neuro-logística y comercio digital avanzado operando desde las sombras del neón.</p>
-				</section>
+		<div className="teamMain">
+			<section className="teamHero">
+				<p className="teamEyebrow">OPERATIVOS DE RED</p>
+				<h1>NUESTRO EQUIPO</h1>
+				<p className="teamIntro">Los arquitectos del mañana. Nuestro sindicato de especialistas en hardware, neuro-logística y comercio digital avanzado operando desde las sombras del neón.</p>
+			</section>
 
-				<section className="teamGrid" aria-label="Miembros del equipo">
-					{teamMembers.map((member, index) => (
-						<article className="teamCard" key={member.name}>
-							<div className="teamImageWrap">
-								<img className={`teamImage ${index === 0 ? 'teamImageFirst' : ''} ${index === 3 ? 'teamImageFourth' : ''}`} src={member.src} alt={member.name} />
-								<span className="teamLevel">{member.level}</span>
+			<section className="teamGrid" aria-label="Miembros del equipo">
+				{teamMembers.map((member, index) => (
+					<article className="teamCard" key={member.name}>
+						<div className="teamImageWrap">
+							<img className={`teamImage ${index === 0 ? 'teamImageFirst' : ''} ${index === 3 ? 'teamImageFourth' : ''}`} src={member.src} alt={member.name} />
+							<span className="teamLevel">{member.level}</span>
+						</div>
+						<div className="teamCardContent">
+							<h2>{member.name}</h2>
+							<p className="teamRole">&gt; {member.role}</p>
+							<p className="teamDescription">{member.description}</p>
+							<div className="teamTags">
+								{member.tags.map((tag) => <span key={tag}>{tag}</span>)}
 							</div>
-							<div className="teamCardContent">
-								<h2>{member.name}</h2>
-								<p className="teamRole">&gt; {member.role}</p>
-								<p className="teamDescription">{member.description}</p>
-								<div className="teamTags">
-									{member.tags.map((tag) => <span key={tag}>{tag}</span>)}
-								</div>
-							</div>
-						</article>
-					))}
-				</section>
-			</main>
-		</>
+						</div>
+					</article>
+				))}
+			</section>
+		</div>
 	)
 }
 
