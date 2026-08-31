@@ -3,7 +3,7 @@ import Modal from "../modal/Modal";
 import UserEditForm from "./UserEditForm";
 import "./UserCard.css";
 
-const UserCard = ({ id, avatar, name }) => {
+const UserCard = ({ id, avatar, name, onUserUpdated }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleOpenEditModal = () => {
@@ -11,6 +11,11 @@ const UserCard = ({ id, avatar, name }) => {
   };
 
   const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleSuccess = () => {
+    if (onUserUpdated) onUserUpdated();
     setIsEditModalOpen(false);
   };
 
@@ -35,7 +40,7 @@ const UserCard = ({ id, avatar, name }) => {
           <UserEditForm
             userId={id}
             onClose={handleCloseEditModal}
-            onSuccess={handleCloseEditModal}
+            onSuccess={handleSuccess}
           />
         )}
       </Modal>
