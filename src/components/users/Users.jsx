@@ -25,6 +25,7 @@ const Users = () => {
                     {users.map((user) => (
                         <UserCard
                             key={user.id}
+                            id={user.id}
                             avatar={user.avatar}
                             name={user.name}
                         />

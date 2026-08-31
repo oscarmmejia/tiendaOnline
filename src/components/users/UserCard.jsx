@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Modal from "../modal/Modal";
+import UserEditForm from "./UserEditForm";
 import "./UserCard.css";
 
-const UserCard = ({ avatar, name }) => {
+const UserCard = ({ id, avatar, name }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleOpenEditModal = () => {
@@ -30,7 +31,13 @@ const UserCard = ({ avatar, name }) => {
       </div>
 
       <Modal isOpen={isEditModalOpen} onClose={handleCloseEditModal}>
-        {/* Modal content will be added here */}
+        {isEditModalOpen && (
+          <UserEditForm
+            userId={id}
+            onClose={handleCloseEditModal}
+            onSuccess={handleCloseEditModal}
+          />
+        )}
       </Modal>
     </>
   );
