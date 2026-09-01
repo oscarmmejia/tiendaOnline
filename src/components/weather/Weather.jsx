@@ -1,55 +1,104 @@
 import { useEffect, useState } from 'react'
+import {
+	getCurrentWeather,
+	getWeatherErrorMessage,
+	isWeatherApiConfigured,
+} from '../../services/weatherApi'
 import './Weather.css'
 
-const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY
+const geolocationOptions = {
+	enableHighAccuracy: false,
+	maximumAge: 300000,
+	timeout: 10000,
+}
+
+const getGeolocationErrorMessage = (error) => {
+	switch (error.code) {
+		case 1:
+			return 'Activa el permiso de ubicación'
+		case 2:
+			return 'Ubicación no disponible'
+		case 3:
+			return 'La ubicación tardó demasiado'
+		default:
+			return 'No se pudo obtener la ubicación'
+	}
+}
 
 function Weather() {
 	const [weather, setWeather] = useState(null)
 	const [error, setError] = useState('')
-	const initialError = !API_KEY
-		? 'Falta configurar la API'
+	const configurationError = !isWeatherApiConfigured
+		? 'Falta configurar OpenWeather'
 		: !navigator.geolocation
 			? 'GPS no disponible'
 			: ''
 
 	useEffect(() => {
-		if (initialError) {
+		if (configurationError) {
 			return
 		}
 
+		const controller = new AbortController()
+		let cancelled = false
+
 		navigator.geolocation.getCurrentPosition(
 			async ({ coords }) => {
+				if (cancelled) {
+					return
+				}
+
 				try {
-					const response = await fetch(
-						`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${API_KEY}&units=metric&lang=es`,
-					)
+					const data = await getCurrentWeather({
+						latitude: coords.latitude,
+						longitude: coords.longitude,
+						signal: controller.signal,
+					})
 
-					if (!response.ok) {
-						throw new Error('No se pudo consultar el clima')
+					if (!cancelled) {
+						setWeather(data)
 					}
-
-					setWeather(await response.json())
-				} catch {
-					setError('No se pudo cargar el clima')
+				} catch (requestError) {
+					if (!cancelled) {
+						setError(getWeatherErrorMessage(requestError))
+					}
 				}
 			},
-			() => setError('Permite el acceso a tu ubicación'),
-			{ enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 },
+			(geolocationError) => {
+				if (!cancelled) {
+					setError(getGeolocationErrorMessage(geolocationError))
+				}
+			},
+			geolocationOptions,
 		)
-	}, [initialError])
 
-	if (initialError || error) {
-		return <aside className="weatherWidget weatherError">{initialError || error}</aside>
+		return () => {
+			cancelled = true
+			controller.abort()
+		}
+	}, [configurationError])
+
+	if (configurationError || error) {
+		return (
+			<aside className="weatherWidget weatherError" role="status">
+				{configurationError || error}
+			</aside>
+		)
 	}
 
 	if (!weather) {
-		return <aside className="weatherWidget weatherLoading">Localizando...</aside>
+		return (
+			<aside className="weatherWidget weatherLoading" role="status">
+				Localizando...
+			</aside>
+		)
 	}
 
 	const weatherType = weather.weather[0]
+	const weatherLabel = `${weather.name}: ${weatherType.description}, ${Math.round(weather.main.temp)} grados`
 
 	return (
-		<aside className="weatherWidget" aria-label="Clima actual">
+		<aside className="weatherWidget" aria-label={weatherLabel} title={weatherLabel}>
 			<div className="weatherSummary">
 				<img
 					className="weatherIcon"
