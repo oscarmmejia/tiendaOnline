@@ -1,11 +1,29 @@
+import { useEffect } from "react";
 import { useUsers } from "../../hooks/useUsers";
-import UserCard from "./UserCard";
+import { UserCard } from "../../components/users/UserCard"; import { login } from "../../services/httpClient";
+import { deleteUser } from "../../services/userService";
 import "./Users.css";
 
 const USERS_LIMIT = 8;
 
 const Users = () => {
-    const { users, loading, error } = useUsers(USERS_LIMIT);
+    const { users, loading, error, refresh } = useUsers(USERS_LIMIT);
+    useEffect(() => {
+        const init = async () => {
+            try {
+                await login("[EMAIL_ADDRESS]", "12345678");
+            } catch (error) {
+                console.error("Login failed:", error);
+            }
+        };
+
+        init();
+    }, []);
+    const handleDelete = async (id) => {
+        await login("john@mail.com", "changeme");
+        await deleteUser(id);
+        refresh();
+    };
 
     return (
         <section className="users">
@@ -25,8 +43,11 @@ const Users = () => {
                     {users.map((user) => (
                         <UserCard
                             key={user.id}
+                            id={user.id}
                             avatar={user.avatar}
                             name={user.name}
+                            onUserUpdated={refresh}
+                            onDelete={handleDelete}
                         />
                     ))}
                 </div>

@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import useProductCatalog from '../../hooks/useProductCatalog'
 import { REQUEST_STATUS } from '../../constants/requestStatus'
-import { ALL_CATEGORIES } from '../../services/productsApi'
+import { ALL_CATEGORIES, deleteProduct } from '../../services/productsApi'
 import PageHeading from '../../components/molecules/pageHeading/PageHeading'
 import CategoryFilter from '../../components/molecules/categoryFilter/CategoryFilter'
 import ProductGrid from '../../components/organisms/productGrid/ProductGrid'
@@ -19,12 +19,17 @@ const getCategoryFromSearchParams = (searchParams) => {
 }
 
 const ProductsPage = () => {
-	const { products, categories, status } = useProductCatalog()
+	const { products, categories, status, refresh } = useProductCatalog()
 	const [searchParams, setSearchParams] = useSearchParams()
 	const selectedCategory = getCategoryFromSearchParams(searchParams)
 
 	const handleCategoryChange = (categoryId) => {
 		setSearchParams(categoryId === ALL_CATEGORIES ? {} : { categoryId })
+	}
+
+	const handleDelete = async (id) => {
+		await deleteProduct(id)
+		refresh()
 	}
 
 	const visibleProducts = useMemo(() => {
@@ -57,7 +62,7 @@ const ProductsPage = () => {
 				</p>
 			)}
 
-			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} />}
+			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} onProductUpdated={refresh} onDelete={handleDelete} />}
 		</section>
 	)
 }

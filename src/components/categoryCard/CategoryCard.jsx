@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { isRequestCanceled } from '../../services/httpClient'
 import { fetchCatalogCategories } from '../../services/productsApi'
 import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '../../routes/routePaths'
@@ -16,7 +17,7 @@ const CategoryCard = () => {
 			try {
 				setCategories(await fetchCatalogCategories(controller.signal))
 			} catch (fetchError) {
-				if (fetchError.name !== 'AbortError') {
+				if (!isRequestCanceled(fetchError)) {
 					setError('No se pudieron cargar las categorías')
 				}
 			} finally {

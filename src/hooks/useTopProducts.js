@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { REQUEST_STATUS } from '../constants/requestStatus'
+import { isRequestCanceled } from '../services/httpClient'
 import { fetchTopProducts } from '../services/productsApi'
 
 const useTopProducts = (limit) => {
@@ -14,7 +15,7 @@ const useTopProducts = (limit) => {
 				setProducts(await fetchTopProducts(limit, controller.signal))
 				setStatus(REQUEST_STATUS.ready)
 			} catch (error) {
-				if (error.name !== 'AbortError') {
+				if (!isRequestCanceled(error)) {
 					setStatus(REQUEST_STATUS.error)
 				}
 			}

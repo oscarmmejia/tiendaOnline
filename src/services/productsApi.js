@@ -1,3 +1,5 @@
+import { httpClient } from './httpClient'
+
 const API_BASE_URL = 'https://api.escuelajs.co/api/v1'
 
 export const ALL_CATEGORIES = 'all'
@@ -70,13 +72,29 @@ const byCatalogOrder = (categoryA, categoryB) =>
   catalogIds.indexOf(categoryA.id) - catalogIds.indexOf(categoryB.id)
 
 const requestJson = async (endpoint, signal) => {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, { signal })
+  const { data } = await httpClient.get(`${API_BASE_URL}${endpoint}`, { signal })
 
-  if (!response.ok) {
-    throw new Error(`La API respondió ${response.status}`)
+  return data
+}
+
+export const fetchProductById = async (id, signal) => {
+  const data = await requestJson(`/products/${id}`, signal)
+
+  return {
+    id: data.id,
+    title: data.title ?? '',
+    slug: data.slug ?? '',
+    price: data.price ?? 0,
+    description: data.description ?? '',
+    category: data.category ?? null,
+    images: Array.isArray(data.images) ? data.images.map(cleanImageUrl).filter(Boolean) : [],
   }
+}
 
-  return response.json()
+export const updateProduct = async (id, payload) => {
+  const { data } = await httpClient.put(`${API_BASE_URL}/products/${id}`, payload)
+
+  return data
 }
 
 export const fetchProducts = async (signal) => {
@@ -100,4 +118,8 @@ export const fetchTopProducts = async (limit, signal) => {
   const products = await fetchProducts(signal)
 
   return [...products].sort(byPriceDesc).slice(0, limit)
+}
+
+export const deleteProduct = async (id) => {
+  await httpClient.delete(`${API_BASE_URL}/products/${id}`)
 }

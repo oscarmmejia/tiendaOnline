@@ -1,7 +1,7 @@
 import ProductCard from '../../molecules/productCard/ProductCard'
 import './ProductGrid.css'
 
-const ProductGrid = ({ products }) => {
+const ProductGrid = ({ products, onProductUpdated, onDelete }) => {
 	if (products.length === 0) {
 		return <p className="productGridEmpty">No hay productos en esta categoría.</p>
 	}
@@ -10,7 +10,7 @@ const ProductGrid = ({ products }) => {
 		<ul className="productGrid">
 			{products.map((product) => (
 				<li key={product.id} className="productGridItem">
-					<ProductCard product={product} />
+					<ProductCard product={product} onProductUpdated={onProductUpdated} onDelete={onDelete}/>
 				</li>
 			))}
 		</ul>
