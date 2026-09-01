@@ -1,5 +1,6 @@
 /* Shared form styles for UserEditForm and ProductEditForm — extracted to avoid duplication */
 .userEditForm,
+.userCreateForm,
 .productEditForm {
   display: flex;
   flex-direction: column;
@@ -10,6 +11,7 @@
 }
 
 .userEditFormTitle,
+.userCreateFormTitle,
 .productEditFormTitle {
   color: #ffffff;
   font-size: 1.1rem;
@@ -20,6 +22,7 @@
 }
 
 .userEditFormField,
+.userCreateFormField,
 .productEditFormField {
   display: flex;
   flex-direction: column;
@@ -27,6 +30,7 @@
 }
 
 .userEditFormField label,
+.userCreateFormField label,
 .productEditFormField label {
   color: #22d3ee;
   font-family: monospace;
@@ -37,6 +41,8 @@
 
 .userEditFormField input,
 .userEditFormField select,
+.userCreateFormField input,
+.userCreateFormField select,
 .productEditFormField input,
 .productEditFormField select,
 .productEditFormField textarea {
@@ -52,6 +58,8 @@
 
 .userEditFormField input:focus,
 .userEditFormField select:focus,
+.userCreateFormField input:focus,
+.userCreateFormField select:focus,
 .productEditFormField input:focus,
 .productEditFormField select:focus,
 .productEditFormField textarea:focus {
@@ -60,6 +68,7 @@
 }
 
 .userEditFormHint,
+.userCreateFormHint,
 .productEditFormHint {
   color: #94a3b8;
   font-size: 0.75rem;
@@ -68,6 +77,7 @@
 }
 
 .userEditFormActions,
+.userCreateFormActions,
 .productEditFormActions {
   display: flex;
   gap: 0.75rem;
@@ -76,6 +86,7 @@
 }
 
 .userEditFormButton,
+.userCreateFormButton,
 .productEditFormButton {
   border: none;
   border-radius: 6px;
@@ -87,6 +98,7 @@
 }
 
 .userEditFormButton:disabled,
+.userCreateFormButton:disabled,
 .productEditFormButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -94,18 +106,21 @@
 }
 
 .userEditFormButtonPrimary,
+.userCreateFormButtonPrimary,
 .productEditFormButtonPrimary {
   background: linear-gradient(135deg, #ef3da5, #4da6ff);
   color: #ffffff;
 }
 
 .userEditFormButtonPrimary:hover:not(:disabled),
+.userCreateFormButtonPrimary:hover:not(:disabled),
 .productEditFormButtonPrimary:hover:not(:disabled) {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(239, 61, 165, 0.4);
 }
 
 .userEditFormButtonSecondary,
+.userCreateFormButtonSecondary,
 .productEditFormButtonSecondary {
   background: transparent;
   color: #ffffff;
@@ -113,12 +128,14 @@
 }
 
 .userEditFormButtonSecondary:hover:not(:disabled),
+.userCreateFormButtonSecondary:hover:not(:disabled),
 .productEditFormButtonSecondary:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.06);
   border-color: #94a3b8;
 }
 
 .userEditFormStatus,
+.userCreateFormStatus,
 .productEditFormStatus {
   color: #22d3ee;
   font-family: monospace;
@@ -128,11 +145,13 @@
 }
 
 .userEditFormStatusError,
+.userCreateFormStatusError,
 .productEditFormStatusError {
   color: #ff007a;
 }
 
 .userEditFormError,
+.userCreateFormError,
 .productEditFormError {
   color: #ff4d8a;
   font-size: 0.8rem;
@@ -144,6 +163,7 @@
 }
 
 .userEditFormSuccess,
+.userCreateFormSuccess,
 .productEditFormSuccess {
   color: #22c55e;
   font-size: 0.8rem;

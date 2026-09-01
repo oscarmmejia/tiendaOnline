@@ -1,11 +1,28 @@
+import { useState } from "react";
+import UserCreateButton from "../atoms/userCreateButton/UserCreateButton";
+import UserCreateModal from "../molecules/userCreateModal/UserCreateModal";
 import { useUsers } from "../../hooks/useUsers";
 import UserCard from "./UserCard";
 import "./Users.css";
 
-const USERS_LIMIT = 8;
+const usersLimit = 8;
 
 const Users = () => {
-    const { users, loading, error, refresh } = useUsers(USERS_LIMIT);
+    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const { users, loading, error, refresh, addUser } = useUsers(usersLimit);
+
+    const handleOpenCreateModal = () => {
+        setIsCreateModalOpen(true);
+    };
+
+    const handleCloseCreateModal = () => {
+        setIsCreateModalOpen(false);
+    };
+
+    const handleUserCreated = (createdUser) => {
+        addUser(createdUser);
+        handleCloseCreateModal();
+    };
 
     return (
         <section className="users">
@@ -15,6 +32,13 @@ const Users = () => {
                 Conectando nodos en la red OKYDOKY. Explora perfiles verificados de
                 compradores de élite y entusiastas de las compras online del futuro.
             </p>
+
+            <div className="usersActions">
+                <UserCreateButton
+                    onClick={handleOpenCreateModal}
+                    disabled={loading}
+                />
+            </div>
 
             {loading && <p className="usersLoading">CONECTANDO...</p>}
 
@@ -33,6 +57,12 @@ const Users = () => {
                     ))}
                 </div>
             )}
+
+            <UserCreateModal
+                isOpen={isCreateModalOpen}
+                onClose={handleCloseCreateModal}
+                onUserCreated={handleUserCreated}
+            />
         </section>
     );
 };

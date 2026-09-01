@@ -3,8 +3,8 @@ import { isRequestCanceled } from "../services/httpClient";
 import { fetchUsers } from "../services/userService";
 
 /**
- * @param {number} limit numero maximo de usuarios a descargar
- * @returns {{ users: Object[], loading: boolean, error: string|null, refresh: () => void }}
+ * @param {number} limit Maximum number of users to fetch.
+ * @returns {{ users: Object[], loading: boolean, error: string|null, refresh: () => void, addUser: (user: Object) => void }}
  */
 export function useUsers(limit) {
     const [users, setUsers] = useState([]);
@@ -15,6 +15,13 @@ export function useUsers(limit) {
     const refresh = useCallback(() => {
         setReloadKey((prev) => prev + 1);
     }, []);
+
+    const addUser = useCallback((user) => {
+        setUsers((currentUsers) => [
+            user,
+            ...currentUsers.filter((currentUser) => currentUser.id !== user.id),
+        ].slice(0, limit));
+    }, [limit]);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -38,5 +45,5 @@ export function useUsers(limit) {
         return () => controller.abort();
     }, [limit, reloadKey]);
 
-    return { users, loading, error, refresh };
+    return { users, loading, error, refresh, addUser };
 }

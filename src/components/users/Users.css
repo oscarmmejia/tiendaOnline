@@ -35,7 +35,15 @@
     font-size: 0.90rem;
     max-width: 33rem;
     line-height: 1.7;
-    margin: 0 0 3rem;
+    margin: 0 0 1.5rem;
+}
+
+.usersActions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto 2rem;
+    max-width: 80rem;
+    width: 100%;
 }
 
 .usersGrid {

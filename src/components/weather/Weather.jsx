@@ -16,6 +16,8 @@ const Weather = () => {
 		)
 	}
 
+	const weatherLabel = `Clima actual: ${weather.description}, ${weather.temperature} grados`
+
 	return (
 		<aside className="weatherWidget" aria-label={weatherLabel} title={weatherLabel}>
 			<div className="weatherSummary">

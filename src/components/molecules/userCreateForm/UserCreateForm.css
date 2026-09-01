@@ -1,0 +1,17 @@
+@import "../../../styles/editForm.css";
+
+.userCreateFormPreview {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.userCreateFormPreviewImage {
+  background: #0a0d14;
+  border: 2px solid #22b4ee;
+  border-radius: 50%;
+  height: 84px;
+  object-fit: cover;
+  padding: 2px;
+  width: 84px;
+}
