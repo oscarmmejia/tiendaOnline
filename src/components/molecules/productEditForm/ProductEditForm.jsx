@@ -158,11 +158,11 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
 
   return (
     <form className="productEditForm" onSubmit={handleSubmit} aria-label="Editar producto">
-      <h2 className="productEditFormTitle">Editar producto #{productId}</h2>
+      <h2 className="productEditFormTitle">Editar producto</h2>
 
       {categoryInfo && (
         <p className="productEditFormCategory">
-          Categoría: <strong>{categoryInfo.name}</strong> (ID {categoryInfo.id}) — solo lectura
+          Categoría: <strong>{categoryInfo.name}</strong> — solo lectura
         </p>
       )}
 
