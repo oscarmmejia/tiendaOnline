@@ -1,5 +1,5 @@
 import { useUsers } from "../../hooks/useUsers";
-import UserCard from "./UserCard";
+import UserCard from "../../components/users/UserCard";
 import "./Users.css";
 
 const USERS_LIMIT = 8;
