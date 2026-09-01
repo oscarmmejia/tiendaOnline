@@ -75,3 +75,8 @@ function mapUserDetail(apiUser) {
         avatar: apiUser.avatar ?? "",
     };
 }
+
+// DELETE - borrar un usuario
+export const deleteUser = async (id) => {
+    await httpClient.delete(`${API_URL}/${id}`);
+};
