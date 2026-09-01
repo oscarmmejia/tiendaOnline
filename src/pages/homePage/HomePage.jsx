@@ -1,7 +1,7 @@
-import Hero from '../../hero/Hero.jsx'
-import TitleDescriptionComponent from '../../titleDescriptionComponent/TitleDescriptionComponent.jsx'
-import TopProductsBanner from '../../organisms/topProductsBanner/TopProductsBanner.jsx'
-import CategoryCard from '../../categoryCard/CategoryCard.jsx'
+import Hero from '../../components/hero/Hero.jsx'
+import TitleDescriptionComponent from '../../components/titleDescriptionComponent/TitleDescriptionComponent.jsx'
+import TopProductsBanner from '../../components/organisms/topProductsBanner/TopProductsBanner.jsx'
+import CategoryCard from '../../components/categoryCard/CategoryCard.jsx'
 
 const HomePage = () => {
 	return (

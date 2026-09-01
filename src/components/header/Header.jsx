@@ -9,23 +9,23 @@ const navigationLinks = [
   { id: 'productos', label: 'PRODUCTOS', to: ROUTE_PATHS.products },
   { id: 'nuestraHistoria', label: 'NUESTRA HISTORIA', to: ROUTE_PATHS.ourStory },
   { id: 'usuarios', label: 'USUARIOS', to: ROUTE_PATHS.users },
-  { id: 'vendedores', label: 'VENDEDORES', to: ROUTE_PATHS.sellers },
+  { id: 'equipo', label: 'EQUIPO', to: ROUTE_PATHS.team },
 ]
 
 const buildNavLinkClass = ({ isActive }) =>
-  isActive ? 'header__navLink header__navLinkActive' : 'header__navLink'
+  isActive ? 'headerNavLink headerNavLinkActive' : 'headerNavLink'
 
 const Header = () => {
   return (
     <header className="header">
-      <NavLink className="header__logo" to={ROUTE_PATHS.home}>
-        <img src={logoOkyDoky} alt="OKYDOKY" className="header__logoImage" />
+      <NavLink className="headerLogo" to={ROUTE_PATHS.home}>
+        <img src={logoOkyDoky} alt="OKYDOKY" className="headerLogoImage" />
       </NavLink>
 
-      <nav className="header__nav">
-        <ul className="header__navList">
+      <nav className="headerNav">
+        <ul className="headerNavList">
           {navigationLinks.map(({ id, label, to }) => (
-            <li key={id} className="header__navItem">
+            <li key={id} className="headerNavItem">
               <NavLink to={to} className={buildNavLinkClass} end>
                 {label}
               </NavLink>
@@ -34,7 +34,7 @@ const Header = () => {
         </ul>
       </nav>
 
-      <div className="header__actions">
+      <div className="headerActions">
         <Weather />
       </div>
     </header>

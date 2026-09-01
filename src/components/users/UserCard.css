@@ -49,3 +49,27 @@
   font-weight: 700;
   margin: 0;
 }
+
+.userCardEditButton {
+  background: linear-gradient(135deg, #ef3da5, #4da6ff);
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.userCardEditButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px rgba(239, 61, 165, 0.4),
+    0 4px 20px rgba(77, 166, 255, 0.3);
+}
+
+.userCardEditButton:active {
+  transform: translateY(0);
+}

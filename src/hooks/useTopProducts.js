@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
 import { REQUEST_STATUS } from '../constants/requestStatus'
+import { isRequestCanceled } from '../services/httpClient'
 import { fetchTopProducts } from '../services/productsApi'
 
-/**
- * Descarga los productos mas caros del catalogo.
- *
- * @param {number} limit cuantos productos devolver
- */
 const useTopProducts = (limit) => {
 	const [products, setProducts] = useState([])
 	const [status, setStatus] = useState(REQUEST_STATUS.loading)
@@ -19,7 +15,7 @@ const useTopProducts = (limit) => {
 				setProducts(await fetchTopProducts(limit, controller.signal))
 				setStatus(REQUEST_STATUS.ready)
 			} catch (error) {
-				if (error.name !== 'AbortError') {
+				if (!isRequestCanceled(error)) {
 					setStatus(REQUEST_STATUS.error)
 				}
 			}

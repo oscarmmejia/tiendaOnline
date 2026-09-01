@@ -5,7 +5,7 @@ import "./Users.css";
 const USERS_LIMIT = 8;
 
 const Users = () => {
-    const { users, loading, error } = useUsers(USERS_LIMIT);
+    const { users, loading, error, refresh } = useUsers(USERS_LIMIT);
 
     return (
         <section className="users">
@@ -25,8 +25,10 @@ const Users = () => {
                     {users.map((user) => (
                         <UserCard
                             key={user.id}
+                            id={user.id}
                             avatar={user.avatar}
                             name={user.name}
+                            onUserUpdated={refresh}
                         />
                     ))}
                 </div>

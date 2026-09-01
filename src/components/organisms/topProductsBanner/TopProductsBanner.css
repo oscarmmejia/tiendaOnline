@@ -1,7 +1,3 @@
-/*
- * Tira lateral: muestra tantas tarjetas como quepan y el resto se alcanzan
- * desplazando en horizontal, con anclaje para que encajen de una en una.
- */
 .topProductsBanner {
 	display: flex;
 	gap: 2.5rem;
@@ -10,13 +6,11 @@
 	max-width: var(--layoutMaxWidth);
 	overflow-x: auto;
 	padding: 0.5rem var(--layoutPadding) 1.75rem;
-	/* Sin esto, el anclaje ignora el padding y se come el margen izquierdo. */
 	scroll-padding-inline: var(--layoutPadding);
 	scroll-snap-type: x mandatory;
 	width: 100%;
 }
 
-/* Barra de desplazamiento en cian, a juego con el resto de la interfaz. */
 .topProductsBanner {
 	scrollbar-color: var(--colorCyan) rgba(34, 211, 238, 0.12);
 	scrollbar-width: thin;

@@ -1,0 +1,113 @@
+.protocolEvolution {
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding: 0 var(--layoutPadding) var(--sectionGap);
+	text-align: center;
+	width: 100%;
+}
+
+.protocolEvolutionTitle {
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
+	font-size: clamp(1.75rem, 5vw, 2.75rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	margin: 0 0 0.75rem;
+	text-shadow: 0 0 1.75rem rgba(34, 211, 238, 0.45);
+	text-transform: uppercase;
+}
+
+.protocolEvolutionSubtitle {
+	color: var(--colorTextMuted);
+	font-family: var(--fontMono);
+	font-size: 0.8125rem;
+	letter-spacing: 0.05em;
+	margin: 0 0 3.5rem;
+}
+
+.protocolEvolutionList {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(2, 1fr);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.protocolCard {
+	background-color: #16171b;
+	border: 1px solid #26272d;
+	border-radius: 12px;
+	overflow: hidden;
+	padding: 1.75rem;
+	position: relative;
+}
+
+.protocolCard::after {
+	content: '';
+	height: 12rem;
+	inset: -6rem -6rem auto auto;
+	position: absolute;
+	width: 12rem;
+}
+
+.protocolCardCyan::after {
+	background: radial-gradient(circle, rgba(34, 211, 238, 0.16), transparent 70%);
+}
+
+.protocolCardMagenta::after {
+	background: radial-gradient(circle, rgba(255, 0, 122, 0.16), transparent 70%);
+}
+
+.protocolCardIcon {
+	align-items: center;
+	border-radius: 8px;
+	color: #05070d;
+	display: inline-flex;
+	height: 2.5rem;
+	justify-content: center;
+	margin-bottom: 1.25rem;
+	width: 2.5rem;
+}
+
+.protocolCardCyan .protocolCardIcon {
+	background-color: var(--colorCyan);
+}
+
+.protocolCardMagenta .protocolCardIcon {
+	background-color: var(--colorMagenta);
+}
+
+.protocolCardVersion {
+	color: var(--colorMagenta);
+	font-family: var(--fontMono);
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	margin: 0 0 0.5rem;
+	text-transform: uppercase;
+}
+
+.protocolCardTitle {
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 1rem;
+}
+
+.protocolCardDescription {
+	color: var(--colorTextMuted);
+	font-family: var(--fontMono);
+	font-size: 0.8125rem;
+	line-height: 1.7;
+	margin: 0;
+}
+
+@media (max-width: 760px) {
+	.protocolEvolutionList {
+		grid-template-columns: 1fr;
+	}
+}

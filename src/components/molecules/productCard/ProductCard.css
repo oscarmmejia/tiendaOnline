@@ -41,3 +41,29 @@
 	margin-top: auto;
 	padding-top: 0.5rem;
 }
+
+.productCardEditButton {
+	background: linear-gradient(135deg, #ef3da5, #4da6ff);
+	border: none;
+	border-radius: 6px;
+	color: #ffffff;
+	cursor: pointer;
+	font-family: var(--fontDisplay);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	margin-top: 0.75rem;
+	padding: 0.5rem 1rem;
+	transition: 0.2s ease;
+	width: 100%;
+}
+
+.productCardEditButton:hover {
+	box-shadow:
+		0 4px 12px rgba(239, 61, 165, 0.4),
+		0 4px 20px rgba(77, 166, 255, 0.3);
+	transform: translateY(-2px);
+}
+
+.productCardEditButton:active {
+	transform: translateY(0);
+}

@@ -2,11 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './styles/App.css'
 import { ROUTE_PATHS } from './routes/routePaths'
 import MainLayout from './components/templates/mainLayout/MainLayout.jsx'
-import HomePage from './components/pages/homePage/HomePage.jsx'
-import ProductsPage from './components/pages/productsPage/ProductsPage.jsx'
-import ComingSoonPage from './components/pages/comingSoonPage/ComingSoonPage.jsx'
-import NotFoundPage from './components/pages/notFoundPage/NotFoundPage.jsx'
-import Team from './components/pages/team/Team.jsx'
+import HomePage from './pages/homePage/HomePage.jsx'
+import ProductsPage from './pages/productsPage/ProductsPage.jsx'
+import OurStoryPage from './pages/ourStoryPage/OurStoryPage.jsx'
+import NotFoundPage from './pages/notFoundPage/NotFoundPage.jsx'
+import Team from './pages/team/Team.jsx'
 import Users from './components/users/Users.jsx'
 
 const App = () => {
@@ -18,14 +18,7 @@ const App = () => {
 					<Route path={ROUTE_PATHS.products} element={<ProductsPage />} />
 					<Route path={ROUTE_PATHS.users} element={<Users />} />
 					<Route path={ROUTE_PATHS.team} element={<Team />} />
-					<Route
-						path={ROUTE_PATHS.ourStory}
-						element={<ComingSoonPage title="Nuestra historia" />}
-					/>
-					<Route
-						path={ROUTE_PATHS.sellers}
-						element={<ComingSoonPage title="Vendedores" />}
-					/>
+					<Route path={ROUTE_PATHS.ourStory} element={<OurStoryPage />} />
 					<Route path="*" element={<NotFoundPage />} />
 				</Route>
 			</Routes>

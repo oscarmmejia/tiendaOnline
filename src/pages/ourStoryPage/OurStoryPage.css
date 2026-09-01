@@ -1,0 +1,127 @@
+.storyHero {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	min-height: min(85vh, 44rem);
+	overflow: hidden;
+	position: relative;
+}
+
+.storyHeroBackground {
+	height: 100%;
+	inset: 0;
+	object-fit: cover;
+	position: absolute;
+	width: 100%;
+}
+
+.storyHeroShade {
+	background: linear-gradient(
+		180deg,
+		rgba(5, 7, 13, 0.55) 0%,
+		rgba(5, 7, 13, 0.75) 60%,
+		var(--colorBackground) 100%
+	);
+	inset: 0;
+	position: absolute;
+}
+
+.storyHeroContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	margin: 0 auto;
+	max-width: 46rem;
+	padding: var(--sectionGap) var(--layoutPadding);
+	position: relative;
+	text-align: center;
+}
+
+.storyHeroTag {
+	border: 1px solid var(--colorCyan);
+	border-radius: 2px;
+	color: var(--colorCyan);
+	font-family: var(--fontMono);
+	font-size: 0.6875rem;
+	letter-spacing: 0.15em;
+	padding: 0.375rem 0.75rem;
+}
+
+.storyHeroTitle {
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
+	font-size: clamp(2.25rem, 7vw, 4.5rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.05;
+	margin: 0;
+	text-shadow: 0 0 2rem rgba(34, 211, 238, 0.55);
+	text-transform: uppercase;
+}
+
+.storyHeroDescription {
+	color: #c7d2dd;
+	font-family: var(--fontDisplay);
+	font-size: 1rem;
+	line-height: 1.7;
+	margin: 0;
+	max-width: 34rem;
+}
+
+.storyOrigin {
+	align-items: center;
+	display: grid;
+	gap: 3.5rem;
+	grid-template-columns: 1fr 1fr;
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding: var(--sectionGap) var(--layoutPadding);
+	width: 100%;
+}
+
+.storyOriginImage {
+	aspect-ratio: 3 / 2;
+	background-color: var(--colorSurface);
+	border: 1px solid var(--colorBorder);
+	border-radius: 8px;
+	display: block;
+	object-fit: cover;
+	width: 100%;
+}
+
+.storyOriginText {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.storyOriginTitle {
+	color: var(--colorText);
+	font-family: var(--fontDisplay);
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.storyOriginParagraph {
+	color: #c7d2dd;
+	font-family: var(--fontDisplay);
+	font-size: 1rem;
+	line-height: 1.75;
+	margin: 0;
+}
+
+.storyOriginParagraphMuted {
+	color: var(--colorTextMuted);
+	font-size: 0.9375rem;
+}
+
+@media (max-width: 860px) {
+	.storyOrigin {
+		gap: 2.5rem;
+		grid-template-columns: 1fr;
+	}
+}

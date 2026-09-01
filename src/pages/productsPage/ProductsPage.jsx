@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import useProductCatalog from '../../../hooks/useProductCatalog'
-import { REQUEST_STATUS } from '../../../constants/requestStatus'
-import { ALL_CATEGORIES } from '../../../services/productsApi'
-import PageHeading from '../../molecules/pageHeading/PageHeading'
-import CategoryFilter from '../../molecules/categoryFilter/CategoryFilter'
-import ProductGrid from '../../organisms/productGrid/ProductGrid'
+import useProductCatalog from '../../hooks/useProductCatalog'
+import { REQUEST_STATUS } from '../../constants/requestStatus'
+import { ALL_CATEGORIES } from '../../services/productsApi'
+import PageHeading from '../../components/molecules/pageHeading/PageHeading'
+import CategoryFilter from '../../components/molecules/categoryFilter/CategoryFilter'
+import ProductGrid from '../../components/organisms/productGrid/ProductGrid'
 import './ProductsPage.css'
 
 const PAGE_TITLE = 'Nuestros productos'
@@ -19,7 +19,7 @@ const getCategoryFromSearchParams = (searchParams) => {
 }
 
 const ProductsPage = () => {
-	const { products, categories, status } = useProductCatalog()
+	const { products, categories, status, refresh } = useProductCatalog()
 	const [searchParams, setSearchParams] = useSearchParams()
 	const selectedCategory = getCategoryFromSearchParams(searchParams)
 
@@ -57,7 +57,7 @@ const ProductsPage = () => {
 				</p>
 			)}
 
-			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} />}
+			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} onProductUpdated={refresh} />}
 		</section>
 	)
 }
