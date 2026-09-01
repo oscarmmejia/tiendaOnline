@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 import { useUsers } from "../../hooks/useUsers";
-<<<<<<< HEAD:src/pages/usersPage/Users.jsx
-import UserCard from "../../components/users/UserCard";
-=======
-import { login } from "../../services/httpClient";
+import { UserCard } from "../../components/users/UserCard"; import { login } from "../../services/httpClient";
 import { deleteUser } from "../../services/userService";
-import { UserCard } from "./UserCard";
->>>>>>> feat/delete-users:src/components/users/Users.jsx
 import "./Users.css";
 
 const USERS_LIMIT = 8;
