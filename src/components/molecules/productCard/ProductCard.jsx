@@ -5,7 +5,7 @@ import ProductPrice from '../../atoms/productPrice/ProductPrice'
 import ProductEditModal from '../productEditModal/ProductEditModal'
 import './ProductCard.css'
 
-const ProductCard = ({ product, onProductUpdated }) => {
+const ProductCard = ({ product, onProductUpdated, onDelete }) => {
 	const { id, title, description, price, imageUrl, categoryName } = product
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
@@ -34,6 +34,7 @@ const ProductCard = ({ product, onProductUpdated }) => {
 				<h2 className="productCardTitle">{title}</h2>
 				<p className="productCardDescription">{description}</p>
 				<ProductPrice amount={price} />
+				<div className="productCardActions">
 				<button
 					className="productCardEditButton"
 					onClick={handleOpenEditModal}
@@ -42,6 +43,17 @@ const ProductCard = ({ product, onProductUpdated }) => {
 				>
 					Editar
 				</button>
+				<button
+					className="productCardDeleteButton"
+					onClick={() => onDelete(id)}
+					aria-label={`Borrar producto ${title}`}
+					type="button"
+				>
+					<svg viewBox="0 0 24 24">
+            <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14ZM10 11v6M14 11v6" />
+          </svg>
+				</button>
+				</div>
 			</article>
 
 			<ProductEditModal
