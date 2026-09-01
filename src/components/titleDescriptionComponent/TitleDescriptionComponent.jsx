@@ -14,7 +14,9 @@ function TitleDescriptionComponent({
 				{subtitle}
 			</h5>
 			<h2 className="titleDescriptionTitle">{title}</h2>
-			<p className="titleDescriptionDescription">{description}</p>
+			{description && (
+				<p className="titleDescriptionDescription">{description}</p>
+			)}
 		</section>
 	)
 }
