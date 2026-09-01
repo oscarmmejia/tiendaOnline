@@ -2,6 +2,7 @@ import Hero from '../../components/hero/Hero.jsx'
 import TitleDescriptionComponent from '../../components/titleDescriptionComponent/TitleDescriptionComponent.jsx'
 import TopProductsBanner from '../../components/organisms/topProductsBanner/TopProductsBanner.jsx'
 import CategoryCard from '../../components/categoryCard/CategoryCard.jsx'
+import LogisticsNetwork from '../../components/organisms/logisticsNetwork/LogisticsNetwork.jsx'
 
 const HomePage = () => {
 	return (
@@ -21,6 +22,12 @@ const HomePage = () => {
 				description='Ponemos a tu disposición una oferta diversificada de productos'
 			/>
 			<CategoryCard />
+			<TitleDescriptionComponent
+				subtitle='GRID CAPABILITIES'
+				subtitleColor='pink'
+				title='La Red de Logística de OKYDOKY'
+			/>
+			<LogisticsNetwork />
 		</>
 	)
 }

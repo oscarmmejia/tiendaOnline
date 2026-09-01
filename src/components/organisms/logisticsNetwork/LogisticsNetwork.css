@@ -1,0 +1,15 @@
+.logisticsNetworkList {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+	list-style: none;
+	margin: 0 auto;
+	max-width: var(--layoutMaxWidth);
+	padding-inline: var(--layoutPadding);
+	padding-bottom: var(--sectionGap);
+	width: 100%;
+}
+
+.logisticsNetworkItem {
+	display: flex;
+}
