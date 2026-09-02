@@ -119,3 +119,7 @@ export const fetchTopProducts = async (limit, signal) => {
 
   return [...products].sort(byPriceDesc).slice(0, limit)
 }
+
+export const deleteProduct = async (id) => {
+  await httpClient.delete(`${API_BASE_URL}/products/${id}`)
+}

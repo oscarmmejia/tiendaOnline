@@ -155,7 +155,7 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
 
   return (
     <form className="userEditForm" onSubmit={handleSubmit} aria-label="Editar usuario">
-      <h2 className="userEditFormTitle">Editar usuario #{userId}</h2>
+      <h2 className="userEditFormTitle">Editar usuario</h2>
 
       <div className="userEditFormField">
         <label htmlFor="edit-name">Nombre</label>

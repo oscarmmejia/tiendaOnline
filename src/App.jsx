@@ -7,7 +7,7 @@ import ProductsPage from './pages/productsPage/ProductsPage.jsx'
 import OurStoryPage from './pages/ourStoryPage/OurStoryPage.jsx'
 import NotFoundPage from './pages/notFoundPage/NotFoundPage.jsx'
 import Team from './pages/team/Team.jsx'
-import Users from './components/users/Users.jsx'
+import Users from './pages/usersPage/Users.jsx'
 
 const App = () => {
 	return (

@@ -42,6 +42,13 @@
 	padding-top: 0.5rem;
 }
 
+.productCardActions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+}
+
 .productCardEditButton {
 	background: linear-gradient(135deg, #ef3da5, #4da6ff);
 	border: none;
@@ -51,10 +58,9 @@
 	font-family: var(--fontDisplay);
 	font-size: 0.8125rem;
 	font-weight: 600;
-	margin-top: 0.75rem;
 	padding: 0.5rem 1rem;
 	transition: 0.2s ease;
-	width: 100%;
+	flex: 1;
 }
 
 .productCardEditButton:hover {
@@ -66,4 +72,41 @@
 
 .productCardEditButton:active {
 	transform: translateY(0);
+}
+
+.productCardDeleteButton {
+    background: linear-gradient(135deg, #ef3da5, #4da6ff);
+    border: none;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.productCardDeleteButton svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.productCardDeleteButton:hover {
+    background: linear-gradient(135deg, #ff3d6b, #8b3dff);
+    transform: translateY(-2px);
+    box-shadow:
+        0 4px 12px rgba(255, 61, 107, 0.4),
+        0 4px 20px rgba(139, 61, 255, 0.3);
+}
+
+.productCardDeleteButton:active {
+    transform: translateY(0);
 }

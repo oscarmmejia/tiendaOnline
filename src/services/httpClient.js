@@ -12,3 +12,12 @@ export const httpClient = axios.create();
  * que saber que por debajo hay axios.
  */
 export const isRequestCanceled = (error) => axios.isCancel(error);
+
+export async function login(email, password) {
+    const { data } = await httpClient.post(
+        "https://api.escuelajs.co/api/v1/auth/login",
+        { email, password }
+    );
+    httpClient.defaults.headers.common["Authorization"] = `Bearer ${data.access_token}`;
+    return data;
+}
