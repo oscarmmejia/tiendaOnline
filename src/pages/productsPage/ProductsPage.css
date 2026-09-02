@@ -20,6 +20,14 @@
 	color: var(--colorMagenta);
 }
 
+.productsPageToolbar {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+}
+
 @media (max-width: 600px) {
 	.productsPage {
 		gap: 2rem;

@@ -13,6 +13,13 @@ const useProductCatalog = () => {
 		setReloadKey((prev) => prev + 1)
 	}, [])
 
+	const addProduct = useCallback((product) => {
+		setProducts((currentProducts) => [
+			product,
+			...currentProducts.filter((currentProduct) => currentProduct.id !== product.id),
+		])
+	}, [])
+
 	useEffect(() => {
 		const controller = new AbortController()
 
@@ -39,7 +46,7 @@ const useProductCatalog = () => {
 		return () => controller.abort()
 	}, [reloadKey])
 
-	return { products, categories, status, refresh }
+	return { products, categories, status, refresh, addProduct }
 }
 
 export default useProductCatalog

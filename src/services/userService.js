@@ -84,7 +84,13 @@ function mapUserDetail(apiUser) {
     };
 }
 
-// DELETE - borrar un usuario
-export const deleteUser = async (id) => {
-    await httpClient.delete(`${API_URL}/${id}`);
-};
+/**
+ * Deletes a user through the users API route.
+ * @param {number|string} id
+ * @param {AbortSignal} [signal]
+ * @returns {Promise<unknown>}
+ */
+export async function deleteUser(id, signal) {
+    const { data } = await httpClient.delete(`${usersApiUrl}/${id}`, { signal });
+    return data;
+}

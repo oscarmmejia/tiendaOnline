@@ -74,6 +74,12 @@
   transform: translateY(0);
 }
 
+.userCardEditButton:disabled,
+.userCardDeleteButton:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
 .userCardDeleteButton {
     background: linear-gradient(135deg, #ef3da5, #4da6ff);
     border: none;

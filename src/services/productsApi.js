@@ -46,15 +46,19 @@ const isCatalogProduct = ({ category, images, description }) => {
   return (description ?? '').trim().length >= MIN_DESCRIPTION_LENGTH
 }
 
-const normalizeProduct = ({ id, title, description, price, images, category }) => ({
-  id,
-  title,
-  description,
-  price,
-  imageUrl: cleanImageUrl(images?.[0]),
-  categoryId: category.id,
-  categoryName: findCatalogCategory(category.id).name,
-})
+const normalizeProduct = ({ id, title, description, price, images, category }) => {
+  const catalogCategory = findCatalogCategory(category?.id)
+
+  return {
+    id,
+    title,
+    description,
+    price,
+    imageUrl: cleanImageUrl(images?.[0]),
+    categoryId: category?.id,
+    categoryName: catalogCategory?.name ?? category?.name ?? '',
+  }
+}
 
 const normalizeCategory = ({ id, image }) => {
   const category = findCatalogCategory(id)
@@ -95,6 +99,24 @@ export const updateProduct = async (id, payload) => {
   const { data } = await httpClient.put(`${API_BASE_URL}/products/${id}`, payload)
 
   return data
+}
+
+/**
+ * Creates a product and adapts the API response to the catalog model.
+ * @param {{ title: string, price: number, description: string, categoryId: number, images: string[] }} payload
+ * @param {AbortSignal} [signal]
+ * @returns {Promise<Object>}
+ */
+export const createProduct = async (payload, signal) => {
+  const { data } = await httpClient.post(`${API_BASE_URL}/products`, payload, { signal })
+  const category = data.category ?? findCatalogCategory(payload.categoryId)
+
+  return normalizeProduct({
+    ...payload,
+    ...data,
+    images: data.images ?? payload.images,
+    category,
+  })
 }
 
 export const fetchProducts = async (signal) => {

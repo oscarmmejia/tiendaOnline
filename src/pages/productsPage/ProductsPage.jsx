@@ -1,10 +1,12 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import useProductCatalog from '../../hooks/useProductCatalog'
 import { REQUEST_STATUS } from '../../constants/requestStatus'
 import { ALL_CATEGORIES, deleteProduct } from '../../services/productsApi'
+import ProductCreateButton from '../../components/atoms/productCreateButton/ProductCreateButton'
 import PageHeading from '../../components/molecules/pageHeading/PageHeading'
 import CategoryFilter from '../../components/molecules/categoryFilter/CategoryFilter'
+import ProductCreateModal from '../../components/molecules/productCreateModal/ProductCreateModal'
 import ProductGrid from '../../components/organisms/productGrid/ProductGrid'
 import './ProductsPage.css'
 
@@ -19,12 +21,37 @@ const getCategoryFromSearchParams = (searchParams) => {
 }
 
 const ProductsPage = () => {
-	const { products, categories, status, refresh } = useProductCatalog()
+	const { products, categories, status, refresh, addProduct } = useProductCatalog()
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
 	const selectedCategory = getCategoryFromSearchParams(searchParams)
+	const initialCreateCategoryId = selectedCategory === ALL_CATEGORIES
+		? categories[0]?.id
+		: Number(selectedCategory)
 
 	const handleCategoryChange = (categoryId) => {
 		setSearchParams(categoryId === ALL_CATEGORIES ? {} : { categoryId })
+	}
+
+	const handleOpenCreateModal = () => {
+		setIsCreateModalOpen(true)
+	}
+
+	const handleCloseCreateModal = () => {
+		setIsCreateModalOpen(false)
+	}
+
+	const handleProductCreated = (createdProduct) => {
+		addProduct(createdProduct)
+
+		if (
+			selectedCategory !== ALL_CATEGORIES
+			&& selectedCategory !== String(createdProduct.categoryId)
+		) {
+			setSearchParams({ categoryId: String(createdProduct.categoryId) })
+		}
+
+		handleCloseCreateModal()
 	}
 
 	const handleDelete = async (id) => {
@@ -46,11 +73,17 @@ const ProductsPage = () => {
 		<section className="productsPage">
 			<PageHeading title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
 
-			<CategoryFilter
-				categories={categories}
-				selectedCategory={selectedCategory}
-				onCategoryChange={handleCategoryChange}
-			/>
+			<div className="productsPageToolbar">
+				<CategoryFilter
+					categories={categories}
+					selectedCategory={selectedCategory}
+					onCategoryChange={handleCategoryChange}
+				/>
+				<ProductCreateButton
+					onClick={handleOpenCreateModal}
+					disabled={status !== REQUEST_STATUS.ready || categories.length === 0}
+				/>
+			</div>
 
 			{status === REQUEST_STATUS.loading && (
 				<p className="productsPageStatus">Cargando catálogo...</p>
@@ -63,6 +96,14 @@ const ProductsPage = () => {
 			)}
 
 			{status === REQUEST_STATUS.ready && <ProductGrid products={visibleProducts} onProductUpdated={refresh} onDelete={handleDelete} />}
+
+			<ProductCreateModal
+				isOpen={isCreateModalOpen}
+				categories={categories}
+				initialCategoryId={initialCreateCategoryId}
+				onClose={handleCloseCreateModal}
+				onProductCreated={handleProductCreated}
+			/>
 		</section>
 	)
 }
