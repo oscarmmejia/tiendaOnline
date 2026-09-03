@@ -1,191 +1,296 @@
 <div align="center">
 
-# OKYDOKY
+```
+╔═══════════════════════════════════════════════╗
+║   ▓▓▓  O K Y D O K Y  ▓▓▓                       ║
+║   > el marketplace del mañana                   ║
+╚═══════════════════════════════════════════════╝
+```
 
-### El marketplace del mañana
+# ⛧ OKYDOKY
 
-Catálogo online de hardware, moda, muebles, calzado y productos misceláneos con una experiencia visual inspirada en el cyberpunk y la tecnología futurista.
+### `// catálogo neón · hardware · moda · muebles · calzado`
 
-[![Demo en Vercel](https://img.shields.io/badge/demo-Vercel-000000?logo=vercel&logoColor=white)](https://tienda-online-okydoky.vercel.app/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111111)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+Tienda online con estética **cyberpunk**: fondos casi negros, tipografía monoespaciada y acentos cian/magenta. Un catálogo vivo servido desde una API externa, filtros por categoría y una experiencia de _marketplace_ del futuro. Proyecto de bootcamp.
+
+<br>
+
+[![▶ DEMO EN VIVO](https://img.shields.io/badge/▶_DEMO_EN_VIVO-05070d?style=for-the-badge&logo=vercel&logoColor=22d3ee)](https://tienda-online-okydoky.vercel.app/)
+
+[![React 19](https://img.shields.io/badge/React-19-22d3ee?style=flat-square&logo=react&logoColor=05070d)](https://react.dev/)
+[![Vite 8](https://img.shields.io/badge/Vite-8-ff007a?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
+[![React Router 7](https://img.shields.io/badge/React_Router-7-22d3ee?style=flat-square&logo=reactrouter&logoColor=05070d)](https://reactrouter.com/)
+[![Axios](https://img.shields.io/badge/Axios-1.20-ff007a?style=flat-square&logo=axios&logoColor=white)](https://axios-http.com/)
+[![Licencia](https://img.shields.io/badge/licencia-académica-334155?style=flat-square)](#-licencia)
 
 </div>
 
-## Descripción
+---
 
-OKYDOKY es una tienda online desarrollada como proyecto de bootcamp. La aplicación presenta un catálogo de productos consumido desde una API externa, permite filtrar por categorías y reúne distintas páginas informativas sobre la marca, su historia y el equipo que la construye.
+## ⌁ Índice
 
-El diseño combina fondos oscuros, tipografías monoespaciadas, acentos neón y tarjetas de producto para crear una identidad de marketplace tecnológico. La interfaz es responsive y cuenta con navegación mediante React Router.
+- [Descripción](#-descripción)
+- [Demo](#-demo)
+- [Capturas](#-capturas)
+- [Características](#-características)
+- [Estética del sistema](#-estética-del-sistema)
+- [Stack tecnológico](#-stack-tecnológico)
+- [Arquitectura del proyecto](#-arquitectura-del-proyecto)
+- [Mapa de rutas](#-mapa-de-rutas)
+- [Requisitos previos](#-requisitos-previos)
+- [Instalación](#-instalación)
+- [Variables de entorno](#-variables-de-entorno)
+- [Comandos disponibles](#-comandos-disponibles)
+- [Integraciones y datos](#-integraciones-y-datos)
+- [Despliegue](#-despliegue)
+- [Equipo](#-equipo)
+- [Licencia](#-licencia)
 
-## Demo
+---
 
-- **Aplicación desplegada:** [tienda-online-okydoky.vercel.app](https://tienda-online-okydoky.vercel.app/)
-- **Repositorio:** [github.com/oscarmmejia/tiendaOnline](https://github.com/oscarmmejia/tiendaOnline)
+## ▚ Descripción
 
-## Capturas
+**OKYDOKY** es una SPA (_single page application_) construida con **React 19** y **Vite 8** como proyecto de bootcamp. Presenta un catálogo de productos consumido en tiempo real desde una API externa, con filtrado por categorías, páginas informativas sobre la marca y un widget de clima opcional basado en geolocalización.
 
-Las imágenes se tomaron sobre la aplicación en ejecución y muestran el contenido principal de cada vista.
+Toda la interfaz gira en torno a una identidad visual coherente: superficies oscuras, rejilla de tarjetas, tipografías `Sora` + `Space Mono` y dos acentos neón (cian y magenta) que atraviesan botones, bordes y estados. La navegación se gestiona con **React Router** sobre un layout compartido, y cada vista maneja sus propios estados de carga, éxito y error.
 
-### Inicio
+---
 
-Hero de OKYDOKY, selección de los cinco productos destacados y categorías principales.
+## ▚ Demo
+
+| Recurso | Enlace |
+| --- | --- |
+| 🌐 Aplicación desplegada | **[tienda-online-okydoky.vercel.app](https://tienda-online-okydoky.vercel.app/)** |
+| 💾 Repositorio | **[github.com/oscarmmejia/tiendaOnline](https://github.com/oscarmmejia/tiendaOnline)** |
+
+---
+
+## ▚ Capturas
+
+> Imágenes tomadas sobre la aplicación en ejecución.
+
+### `> INICIO`
+Hero principal, productos destacados y acceso a las categorías del catálogo.
 
 ![Página de inicio de OKYDOKY](public/screenshots/home.png)
 
-### Catálogo de productos
-
-Vista de productos con encabezado, selector de categoría y zona de resultados.
+### `> CATÁLOGO`
+Encabezado, selector de categoría y rejilla de resultados en vivo.
 
 ![Catálogo de productos de OKYDOKY](public/screenshots/products.png)
 
-### Nuestra historia
-
-Hero editorial, origen de la marca y evolución de sus protocolos.
+### `> NUESTRA HISTORIA`
+Narrativa de marca y evolución de sus protocolos.
 
 ![Página Nuestra historia de OKYDOKY](public/screenshots/our-story.png)
 
-### Usuarios
-
-Perfiles de usuarios conectados a la comunidad OKYDOKY.
+### `> USUARIOS`
+Perfiles de la comunidad conectada a OKYDOKY.
 
 ![Página de usuarios de OKYDOKY](public/screenshots/users.png)
 
-### Equipo
-
-Presentación visual de los cinco integrantes del proyecto y sus responsabilidades.
+### `> EQUIPO`
+Los cinco integrantes que construyen el sistema.
 
 ![Equipo de OKYDOKY](public/screenshots/team.png)
 
-## Funcionalidades
+---
 
-- Página de inicio con hero principal, propuesta de valor, productos destacados y categorías.
-- Catálogo con productos obtenidos desde la API de Platzi Fake Store.
-- Filtrado del catálogo por categoría mediante selector y parámetros de URL.
-- Tarjetas reutilizables con imagen, categoría, descripción y precio.
-- Página «Nuestra historia» con narrativa de marca y sección de evolución de protocolos.
-- Página «Usuarios» con perfiles obtenidos desde la API externa.
-- Página «Equipo» con los cinco integrantes y sus roles.
-- Página de secciones en construcción para «Vendedores».
-- Página 404 para rutas no encontradas.
-- Widget de clima basado en geolocalización y OpenWeather, activado al configurar su API key.
-- Header, footer y navegación compartidos en todas las páginas.
-- Scroll automático al cambiar de ruta.
-- Estados de carga y error para las peticiones asíncronas.
+## ▚ Características
 
-## Rutas disponibles
+- 🛰️ **Catálogo en vivo** — productos obtenidos desde la Platzi Fake Store API y normalizados antes de pintarse.
+- 🔍 **Filtrado por categoría** — selector sincronizado con parámetros de URL (`?categoryId=`).
+- ✨ **Catálogo curado** — descarta productos con imágenes _placeholder_ o descripciones demasiado cortas, dejando solo fichas de calidad.
+- 🏆 **Destacados** — selección de los productos de mayor precio para el _hero_ de inicio.
+- 🧩 **Tarjetas reutilizables** — imagen, categoría, descripción y precio en un componente único.
+- 📖 **Nuestra historia** — página editorial con el origen y la evolución de la marca.
+- 👥 **Usuarios** — perfiles de la comunidad servidos desde la API externa.
+- 🛠️ **Equipo** — presentación de los cinco integrantes y sus roles.
+- 🌦️ **Widget de clima opcional** — geolocalización + OpenWeather, activable por variable de entorno.
+- ♻️ **Peticiones cancelables** — `AbortController` + axios evitan actualizar componentes desmontados.
+- ⏳ **Estados asíncronos** — `loading` / `ready` / `error` gestionados de forma centralizada.
+- 🧭 **Layout compartido** — header, footer y _scroll-to-top_ automático al cambiar de ruta.
+- 🚫 **Página 404** — fallback para cualquier ruta no definida.
+- 📱 **Responsive** — la rejilla y el _padding_ se adaptan por _breakpoints_.
 
-| Ruta | Vista |
+---
+
+## ▚ Estética del sistema
+
+La identidad visual vive en `src/index.css` como _design tokens_. Esta es la paleta que define el mundo OKYDOKY:
+
+| Token | Hex | Rol |
+| --- | --- | --- |
+| `--colorBackground` | `#05070d` | Fondo base (casi negro) |
+| `--colorSurface` | `#0f172a` | Superficies y tarjetas |
+| `--colorBorder` | `#334155` | Bordes y separadores |
+| `--colorText` | `#ffffff` | Texto principal |
+| `--colorTextMuted` | `#8a95a5` | Texto secundario |
+| `--colorCyan` | `#22d3ee` | Acento primario (neón cian) |
+| `--colorMagenta` | `#ff007a` | Acento secundario (neón magenta) |
+
+**Tipografías:** `Sora` para display · `Space Mono` para código y detalles técnicos.
+
+---
+
+## ▚ Stack tecnológico
+
+| Capa | Tecnología |
 | --- | --- |
-| `/` | Inicio |
-| `/productos` | Catálogo completo |
-| `/productos?categoryId=1` | Catálogo filtrado por categoría |
-| `/nuestra-historia` | Historia y evolución de protocolos |
-| `/usuarios` | Usuarios de la comunidad |
-| `/equipo` | Integrantes del equipo |
-| `/vendedores` | Sección en construcción |
-| Cualquier otra ruta | Página 404 |
+| **UI** | React 19 · React DOM 19 |
+| **Enrutado** | React Router DOM 7 |
+| **Build / Dev** | Vite 8 |
+| **HTTP** | Axios 1.20 (cliente centralizado) |
+| **Compilación** | React Compiler vía Babel + Rolldown |
+| **Estilos** | CSS modular por componente + tokens globales |
+| **Calidad** | ESLint 10 |
+| **Lenguaje** | JavaScript (ES Modules) |
 
-## Tecnologías
+**APIs externas:** [Platzi Fake Store API](https://api.escuelajs.co/api/v1) · [OpenWeather API](https://openweathermap.org/api)
 
-- React 19
-- React DOM 19
-- React Router DOM 7
-- Vite 8
-- JavaScript (ES modules)
-- CSS modular por componente
-- ESLint 10
-- React Compiler mediante Babel/Rolldown
-- [Platzi Fake Store API](https://api.escuelajs.co/api/v1) para productos, categorías y usuarios
-- [OpenWeather API](https://openweathermap.org/api) para el widget meteorológico opcional
+---
 
-## Requisitos previos
-
-- Node.js 18 o superior
-- npm 9 o superior
-- Conexión a internet para cargar los datos de las APIs externas
-
-## Instalación
-
-1. Clona el repositorio:
-
-	```bash
-	git clone https://github.com/oscarmmejia/tiendaOnline.git
-	cd tiendaOnline
-	```
-
-2. Instala las dependencias:
-
-	```bash
-	npm install
-	```
-
-3. (Opcional) Configura el widget del clima. Crea un archivo `.env` en la raíz del proyecto y añade:
-
-	```env
-	VITE_OPENWEATHER_API_KEY=tu_api_key_de_openweather
-	```
-
-	Sin esta variable, la tienda continúa funcionando y el widget mostrará que la API no está configurada.
-
-4. Inicia el servidor de desarrollo:
-
-	```bash
-	npm run dev
-	```
-
-5. Abre la URL que indique Vite, normalmente [http://localhost:5173](http://localhost:5173).
-
-## Scripts disponibles
-
-| Comando | Descripción |
-| --- | --- |
-| `npm run dev` | Inicia el servidor de desarrollo con Vite |
-| `npm run build` | Genera la compilación de producción en `dist/` |
-| `npm run preview` | Sirve localmente la compilación de producción |
-| `npm run lint` | Ejecuta ESLint sobre el proyecto |
-
-## Estructura del proyecto
+## ▚ Arquitectura del proyecto
 
 ```text
 src/
-├── assets/              # Recursos usados por componentes
+├── assets/                 # Recursos estáticos (hero background)
 ├── components/
-│   ├── atoms/           # Elementos básicos reutilizables
-│   ├── molecules/       # Composiciones pequeñas
-│   ├── organisms/       # Bloques complejos de interfaz
-│   ├── pages/           # Vistas asociadas a rutas
-│   ├── templates/       # Layout compartido
-│   ├── users/           # Componentes de usuarios
-│   └── weather/         # Widget meteorológico
-├── constants/           # Estados y valores compartidos
-├── hooks/               # Hooks de datos y navegación
-├── img/                 # Imágenes de historia y equipo
-├── routes/              # Rutas centralizadas
-├── services/            # Acceso y transformación de APIs
-├── styles/              # Estilos globales y específicos
-├── App.jsx              # Configuración del enrutador
-├── index.css            # Estilos base
-└── main.jsx             # Punto de entrada
+│   ├── atoms/              # Piezas base reutilizables
+│   ├── molecules/          # Composiciones pequeñas
+│   ├── organisms/          # Bloques complejos de interfaz
+│   ├── templates/          # MainLayout (header + footer + outlet)
+│   ├── header/             # Cabecera y navegación
+│   ├── footer/             # Pie de página
+│   ├── hero/               # Hero de inicio
+│   ├── categoryCard/       # Tarjeta de categoría
+│   ├── titleDescription…/  # Bloque de título + descripción
+│   ├── users/              # Vista y tarjetas de usuarios
+│   └── weather/            # Widget meteorológico
+├── constants/
+│   └── requestStatus.js    # Estados loading / ready / error
+├── hooks/
+│   ├── useProductCatalog.js
+│   ├── useTopProducts.js
+│   ├── useUsers.js
+│   ├── useWeather.js
+│   └── useScrollToTop.js
+├── img/                    # Imágenes de historia y equipo
+├── pages/
+│   ├── homePage/
+│   ├── productsPage/
+│   ├── ourStoryPage/
+│   ├── team/
+│   └── notFoundPage/
+├── routes/
+│   └── routePaths.js       # Rutas centralizadas
+├── services/
+│   ├── httpClient.js       # Instancia axios + helper de cancelación
+│   ├── productsApi.js      # Productos y categorías (curado + normalizado)
+│   ├── userService.js      # Usuarios
+│   └── weatherService.js   # OpenWeather
+├── styles/                 # Estilos compartidos
+├── App.jsx                 # Configuración del router
+├── main.jsx                # Punto de entrada
+└── index.css               # Tokens y estilos base
 ```
 
-## Datos e integraciones
+**Flujo de datos:** `service` (axios) → `hook` (estado + cancelación) → `page` / `component` (render por estado). Los servicios devuelven datos ya **normalizados**, de modo que la capa visual solo se preocupa de pintar.
 
-Los productos y categorías se consultan desde `https://api.escuelajs.co/api/v1`. Los hooks cancelan las peticiones cuando el componente se desmonta y exponen estados de carga, éxito y error para que cada vista pueda mostrar una respuesta adecuada.
+---
 
-La vista de usuarios usa el endpoint `/users`. El widget meteorológico solicita permiso de geolocalización al navegador y consulta OpenWeather con la variable `VITE_OPENWEATHER_API_KEY`. Las claves deben permanecer en variables de entorno y no deben subirse al repositorio.
+## ▚ Mapa de rutas
 
-## Despliegue
+| Ruta | Vista | Descripción |
+| --- | --- | --- |
+| `/` | Inicio | Hero, destacados y categorías |
+| `/productos` | Catálogo | Todos los productos |
+| `/productos?categoryId=1` | Catálogo filtrado | Resultados por categoría |
+| `/nuestra-historia` | Nuestra historia | Narrativa de marca |
+| `/usuarios` | Usuarios | Perfiles de la comunidad |
+| `/equipo` | Equipo | Integrantes y roles |
+| `*` | 404 | Fallback de ruta no encontrada |
 
-El proyecto está preparado para desplegarse en Vercel como aplicación Vite:
+---
+
+## ▚ Requisitos previos
+
+- **Node.js** 18 o superior
+- **npm** 9 o superior
+- Conexión a internet (los datos provienen de APIs externas)
+
+---
+
+## ▚ Instalación
+
+```bash
+# 1 · Clona el repositorio
+git clone https://github.com/oscarmmejia/tiendaOnline.git
+
+# 2 · Entra en el proyecto
+cd tiendaOnline
+
+# 3 · Instala las dependencias
+npm install
+
+# 4 · Arranca el entorno de desarrollo
+npm run dev
+```
+
+Vite mostrará una URL local (por defecto **http://localhost:5173**). Ábrela en el navegador y el sistema estará online. ⚡
+
+---
+
+## ▚ Variables de entorno
+
+El widget de clima es **opcional**. Para activarlo, crea un archivo `.env` en la raíz:
+
+```env
+VITE_OPENWEATHER_API_KEY=tu_api_key_de_openweather
+```
+
+> Sin esta clave, la tienda funciona con total normalidad; el widget simplemente indicará que la API no está configurada. **Nunca subas tu `.env` al repositorio.**
+
+---
+
+## ▚ Comandos disponibles
+
+| Comando | Acción |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo con Vite |
+| `npm run build` | Compilación de producción en `dist/` |
+| `npm run preview` | Sirve localmente la _build_ de producción |
+| `npm run lint` | Análisis de código con ESLint |
+
+---
+
+## ▚ Integraciones y datos
+
+**Platzi Fake Store API** — `https://api.escuelajs.co/api/v1`
+Productos, categorías y usuarios. La capa de servicios **filtra y normaliza** la respuesta: descarta imágenes _placeholder_, exige una descripción mínima y limita el catálogo a las categorías destacadas — **Ropa · Electrónica · Muebles · Zapatos · Misceláneos**.
+
+**OpenWeather API** — widget meteorológico opcional.
+Solicita permiso de geolocalización al navegador y consulta el clima con la variable `VITE_OPENWEATHER_API_KEY`, devolviendo solo temperatura, descripción e icono.
+
+Todas las peticiones pasan por un **cliente axios centralizado** (`httpClient.js`) y son cancelables mediante `AbortController`, evitando fugas de estado al desmontar componentes.
+
+---
+
+## ▚ Despliegue
+
+Optimizado para **Vercel** como aplicación Vite:
 
 1. Importa el repositorio en Vercel.
-2. Mantén `npm run build` como comando de compilación.
-3. Usa `dist` como directorio de salida.
-4. Añade `VITE_OPENWEATHER_API_KEY` en las variables de entorno si quieres activar el clima.
-5. Configura una regla de fallback a `index.html` si el proveedor no la añade automáticamente, para que las rutas de React Router funcionen al recargar.
+2. Comando de compilación: `npm run build`.
+3. Directorio de salida: `dist`.
+4. (Opcional) Añade `VITE_OPENWEATHER_API_KEY` en las variables de entorno.
+5. El `vercel.json` incluido reescribe todas las rutas a `index.html`, de modo que React Router funciona incluso al recargar en rutas internas.
 
-## Equipo
+---
+
+## ▚ Equipo
+
+> `> 5 nodos conectados al sistema`
 
 - **Jesús González Gómez**
 - **Juan Camilo Piamba Uribe**
@@ -193,6 +298,18 @@ El proyecto está preparado para desplegarse en Vercel como aplicación Vite:
 - **Moisés García Sanz**
 - **Cristina Rodríguez López**
 
-## Licencia
+---
 
-Proyecto académico desarrollado para el bootcamp. Todos los derechos del código pertenecen a sus autores.
+## ▚ Licencia
+
+Proyecto **académico** desarrollado para el bootcamp. Todos los derechos del código pertenecen a sus autores.
+
+<div align="center">
+
+```
+╔═══════════════════════════════════════════════╗
+║   ▓▓  OKYDOKY · sistema en línea · 2026  ▓▓     ║
+╚═══════════════════════════════════════════════╝
+```
+
+</div>
