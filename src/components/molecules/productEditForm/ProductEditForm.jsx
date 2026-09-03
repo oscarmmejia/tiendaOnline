@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { isRequestCanceled } from "../../../services/httpClient";
 import { fetchProductById, updateProduct } from "../../../services/productsApi";
 import { uploadImageToCloudinary, isCloudinaryConfigured } from "../../../services/cloudinaryService";
+import { getApiErrorMessage } from "../../../utils/getApiErrorMessage";
 import "./ProductEditForm.css";
 
 const ProductEditForm = ({ productId, onClose, onSuccess }) => {
@@ -42,9 +43,9 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
         setCategoryInfo(product.category);
         setPreviewUrls(product.images);
         setStatus("ready");
-      } catch (err) {
-        if (!isRequestCanceled(err)) {
-          setErrorMessage(err.response?.data?.message || err.message || "No se pudo cargar el producto");
+      } catch (error) {
+        if (!isRequestCanceled(error)) {
+          setErrorMessage(getApiErrorMessage(error, "No se pudo cargar el producto"));
           setStatus("error");
         }
       }
@@ -61,16 +62,16 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
     };
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm((prev) => ({
       ...prev,
       [name]: name === "price" ? Number(value) : value,
     }));
   };
 
-  const handleImagesChange = async (e) => {
-    const files = Array.from(e.target.files || []);
+  const handleImagesChange = async (event) => {
+    const files = Array.from(event.target.files || []);
     if (files.length === 0) return;
 
     const newObjectUrls = files.map((file) => URL.createObjectURL(file));
@@ -94,24 +95,24 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
           setForm((prev) => ({ ...prev, images: [...prev.images, secureUrl] }));
           setPreviewUrls((prev) => prev.map((url) => (url === objectUrl ? secureUrl : url)));
           URL.revokeObjectURL(objectUrl);
-          previewObjectUrlsRef.current = previewObjectUrlsRef.current.filter((u) => u !== objectUrl);
-        } catch (err) {
-          if (!isRequestCanceled(err)) {
-            setUploadError(err.response?.data?.error?.message || err.message || "Error al subir imagen");
+          previewObjectUrlsRef.current = previewObjectUrlsRef.current.filter((url) => url !== objectUrl);
+        } catch (error) {
+          if (!isRequestCanceled(error)) {
+            setUploadError(getApiErrorMessage(error, "Error al subir imagen"));
             setPreviewUrls((prev) => prev.filter((url) => url !== objectUrl));
             URL.revokeObjectURL(objectUrl);
-            previewObjectUrlsRef.current = previewObjectUrlsRef.current.filter((u) => u !== objectUrl);
+            previewObjectUrlsRef.current = previewObjectUrlsRef.current.filter((url) => url !== objectUrl);
           }
         }
       }
     } finally {
       setIsUploading(false);
-      e.target.value = "";
+      event.target.value = "";
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setSubmitError("");
     setSubmitSuccess("");
 
@@ -130,8 +131,8 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
       setSubmitSuccess("Producto actualizado correctamente");
       setStatus("ready");
       if (onSuccess) onSuccess();
-    } catch (err) {
-      setSubmitError(err.response?.data?.message || err.message || "No se pudo actualizar el producto");
+    } catch (error) {
+      setSubmitError(getApiErrorMessage(error, "No se pudo actualizar el producto"));
       setStatus("ready");
     }
   };
@@ -167,7 +168,7 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
       )}
 
       <div className="productEditFormField">
-        <label htmlFor="edit-title">Title</label>
+        <label htmlFor="edit-title">Título</label>
         <input id="edit-title" name="title" value={form.title} onChange={handleChange} required />
       </div>
 
@@ -177,17 +178,17 @@ const ProductEditForm = ({ productId, onClose, onSuccess }) => {
       </div>
 
       <div className="productEditFormField">
-        <label htmlFor="edit-price">Price</label>
+        <label htmlFor="edit-price">Precio</label>
         <input id="edit-price" name="price" type="number" min="0" step="0.01" value={form.price} onChange={handleChange} required />
       </div>
 
       <div className="productEditFormField">
-        <label htmlFor="edit-description">Description</label>
+        <label htmlFor="edit-description">Descripción</label>
         <textarea id="edit-description" name="description" value={form.description} onChange={handleChange} required rows={4} />
       </div>
 
       <div className="productEditFormField">
-        <label htmlFor="edit-images">Images</label>
+        <label htmlFor="edit-images">Imágenes</label>
         <input id="edit-images" type="file" accept="image/*" multiple onChange={handleImagesChange} />
         {!isCloudinaryConfigured && (
           <p className="productEditFormHint">Cloudinary no configurado: define VITE_CLOUDINARY_CLOUD_NAME y VITE_CLOUDINARY_UPLOAD_PRESET en .env</p>

@@ -5,9 +5,10 @@ import {
 } from '../../../services/cloudinaryService'
 import { isRequestCanceled } from '../../../services/httpClient'
 import { createProduct } from '../../../services/productsApi'
+import { getApiErrorMessage } from '../../../utils/getApiErrorMessage'
 import './ProductCreateForm.css'
 
-const minimumDescriptionLength = 60
+const MIN_DESCRIPTION_LENGTH = 60
 
 const initialProductForm = {
   title: '',
@@ -15,18 +16,6 @@ const initialProductForm = {
   description: '',
   categoryId: '',
   images: [],
-}
-
-const getRequestErrorMessage = (error, fallbackMessage) => {
-  const apiMessage = error.response?.data?.message
-
-  if (Array.isArray(apiMessage)) {
-    return apiMessage.join('. ')
-  }
-
-  return typeof apiMessage === 'string'
-    ? apiMessage
-    : error.message || fallbackMessage
 }
 
 const revokeObjectUrls = (objectUrls) => {
@@ -65,7 +54,8 @@ const ProductCreateForm = ({
     previewObjectUrlsRef.current = []
   }
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (event) => {
+    const { name, value } = event.target
     setForm((currentForm) => ({ ...currentForm, [name]: value }))
     setSubmitError('')
   }
@@ -126,7 +116,7 @@ const ProductCreateForm = ({
     } catch (error) {
       if (!isRequestCanceled(error)) {
         setUploadError(
-          getRequestErrorMessage(error, 'No se pudieron subir las imágenes.'),
+          getApiErrorMessage(error, 'No se pudieron subir las imágenes.'),
         )
       }
     } finally {
@@ -160,9 +150,9 @@ const ProductCreateForm = ({
       return
     }
 
-    if (description.length < minimumDescriptionLength) {
+    if (description.length < MIN_DESCRIPTION_LENGTH) {
       setSubmitError(
-        `La descripción debe tener al menos ${minimumDescriptionLength} caracteres.`,
+        `La descripción debe tener al menos ${MIN_DESCRIPTION_LENGTH} caracteres.`,
       )
       return
     }
@@ -196,7 +186,7 @@ const ProductCreateForm = ({
     } catch (error) {
       if (!isRequestCanceled(error)) {
         setSubmitError(
-          getRequestErrorMessage(error, 'No se pudo crear el producto.'),
+          getApiErrorMessage(error, 'No se pudo crear el producto.'),
         )
       }
     } finally {
@@ -258,14 +248,14 @@ const ProductCreateForm = ({
           id="createProductDescription"
           name="description"
           rows="5"
-          minLength={minimumDescriptionLength}
+          minLength={MIN_DESCRIPTION_LENGTH}
           value={form.description}
           onChange={handleChange}
           disabled={isBusy}
           required
         />
         <span className="productCreateFormCharacterCount">
-          {form.description.trim().length}/{minimumDescriptionLength} caracteres mínimos
+          {form.description.trim().length}/{MIN_DESCRIPTION_LENGTH} caracteres mínimos
         </span>
       </div>
 

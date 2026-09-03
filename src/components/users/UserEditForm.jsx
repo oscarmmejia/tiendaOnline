@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { isRequestCanceled } from "../../services/httpClient";
 import { fetchUserById, updateUser } from "../../services/userService";
 import { uploadImageToCloudinary, isCloudinaryConfigured } from "../../services/cloudinaryService";
+import { getApiErrorMessage } from "../../utils/getApiErrorMessage";
 import "./UserEditForm.css";
 
 const UserEditForm = ({ userId, onClose, onSuccess }) => {
@@ -13,7 +14,7 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
     avatar: "",
   });
   const [previewUrl, setPreviewUrl] = useState("");
-  const [status, setStatus] = useState("loading"); // loading | ready | error | submitting | success
+  const [status, setStatus] = useState("loading");
   const [errorMessage, setErrorMessage] = useState("");
   const [submitError, setSubmitError] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState("");
@@ -40,9 +41,9 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
         });
         setPreviewUrl(user.avatar);
         setStatus("ready");
-      } catch (err) {
-        if (!isRequestCanceled(err)) {
-          setErrorMessage(err.response?.data?.message || err.message || "No se pudo cargar el usuario");
+      } catch (error) {
+        if (!isRequestCanceled(error)) {
+          setErrorMessage(getApiErrorMessage(error, "No se pudo cargar el usuario"));
           setStatus("error");
         }
       }
@@ -53,7 +54,6 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
     return () => controller.abort();
   }, [userId]);
 
-  // Limpia object URLs al desmontar o cambiar preview
   useEffect(() => {
     return () => {
       if (previewObjectUrlRef.current) {
@@ -62,16 +62,15 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
     };
   }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleAvatarFileChange = async (e) => {
-    const file = e.target.files?.[0];
+  const handleAvatarFileChange = async (event) => {
+    const file = event.target.files?.[0];
     if (!file) return;
 
-    // Preview inmediata local
     if (previewObjectUrlRef.current) {
       URL.revokeObjectURL(previewObjectUrlRef.current);
     }
@@ -89,25 +88,23 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
       setIsUploading(true);
       const controller = new AbortController();
       const secureUrl = await uploadImageToCloudinary(file, controller.signal);
-      // Reemplaza preview por la URL de Cloudinary
       setForm((prev) => ({ ...prev, avatar: secureUrl }));
       setPreviewUrl(secureUrl);
-      // Liberamos objectUrl anterior ya no necesario
       if (previewObjectUrlRef.current) {
         URL.revokeObjectURL(previewObjectUrlRef.current);
         previewObjectUrlRef.current = null;
       }
-    } catch (err) {
-      if (!isRequestCanceled(err)) {
-        setUploadError(err.response?.data?.error?.message || err.message || "Error al subir imagen");
+    } catch (error) {
+      if (!isRequestCanceled(error)) {
+        setUploadError(getApiErrorMessage(error, "Error al subir imagen"));
       }
     } finally {
       setIsUploading(false);
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setSubmitError("");
     setSubmitSuccess("");
 
@@ -116,7 +113,6 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
 
     try {
       setStatus("submitting");
-      // Si preview es objectUrl y aún no se subió a cloudinary, avatar seguirá con valor anterior (ya en form.avatar)
       await updateUser(userId, {
         name: form.name,
         email: form.email,
@@ -127,8 +123,8 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
       setSubmitSuccess("Usuario actualizado correctamente");
       setStatus("ready");
       if (onSuccess) onSuccess();
-    } catch (err) {
-      setSubmitError(err.response?.data?.message || err.message || "No se pudo actualizar el usuario");
+    } catch (error) {
+      setSubmitError(getApiErrorMessage(error, "No se pudo actualizar el usuario"));
       setStatus("ready");
     }
   };
@@ -193,7 +189,6 @@ const UserEditForm = ({ userId, onClose, onSuccess }) => {
             <img src={previewUrl} alt="Previsualización avatar" className="userEditFormPreviewImage" />
           </div>
         )}
-        {/* Campo oculto/visible para debug: valor real de avatar que se enviará */}
         <input type="hidden" name="avatar" value={form.avatar} />
         {form.avatar && <p className="userEditFormHint userEditFormAvatarUrl">{form.avatar}</p>}
       </div>

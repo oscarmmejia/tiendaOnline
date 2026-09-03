@@ -4,25 +4,16 @@ import UserCreateModal from "../../components/molecules/userCreateModal/UserCrea
 import { UserCard } from "../../components/users/UserCard";
 import { useUsers } from "../../hooks/useUsers";
 import { deleteUser } from "../../services/userService";
+import { getApiErrorMessage } from "../../utils/getApiErrorMessage";
 import "./Users.css";
 
-const usersLimit = 8;
-
-const getDeleteErrorMessage = (error) => {
-  const apiMessage = error.response?.data?.message;
-
-  if (Array.isArray(apiMessage)) {
-    return apiMessage.join(". ");
-  }
-
-  return apiMessage || error.message || "No se pudo borrar el usuario";
-};
+const USERS_LIMIT = 8;
 
 const Users = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [deletingUserId, setDeletingUserId] = useState(null);
   const [deleteError, setDeleteError] = useState("");
-  const { users, loading, error, refresh, addUser } = useUsers(usersLimit);
+  const { users, loading, error, refresh, addUser } = useUsers(USERS_LIMIT);
 
   const handleOpenCreateModal = () => {
     setIsCreateModalOpen(true);
@@ -52,7 +43,7 @@ const Users = () => {
       await deleteUser(id);
       refresh();
     } catch (deleteUserError) {
-      setDeleteError(getDeleteErrorMessage(deleteUserError));
+      setDeleteError(getApiErrorMessage(deleteUserError, "No se pudo borrar el usuario"));
     } finally {
       setDeletingUserId(null);
     }

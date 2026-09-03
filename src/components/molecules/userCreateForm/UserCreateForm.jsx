@@ -5,6 +5,7 @@ import {
 } from "../../../services/cloudinaryService";
 import { isRequestCanceled } from "../../../services/httpClient";
 import { createUser } from "../../../services/userService";
+import { getApiErrorMessage } from "../../../utils/getApiErrorMessage";
 import "./UserCreateForm.css";
 
 const initialForm = {
@@ -13,16 +14,6 @@ const initialForm = {
   password: "",
   role: "customer",
   avatar: "",
-};
-
-const getSubmitErrorMessage = (error) => {
-  const apiMessage = error.response?.data?.message;
-
-  if (Array.isArray(apiMessage)) {
-    return apiMessage.join(". ");
-  }
-
-  return apiMessage || error.message || "No se pudo crear el usuario";
 };
 
 const UserCreateForm = ({ onCancel, onSuccess }) => {
@@ -47,7 +38,8 @@ const UserCreateForm = ({ onCancel, onSuccess }) => {
     };
   }, []);
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm((currentForm) => ({ ...currentForm, [name]: value }));
   };
 
@@ -139,7 +131,7 @@ const UserCreateForm = ({ onCancel, onSuccess }) => {
       onSuccess(createdUser);
     } catch (error) {
       if (!isRequestCanceled(error)) {
-        setSubmitError(getSubmitErrorMessage(error));
+        setSubmitError(getApiErrorMessage(error, "No se pudo crear el usuario"));
       }
     } finally {
       if (!controller.signal.aborted) {
