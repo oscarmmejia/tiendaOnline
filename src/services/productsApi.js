@@ -1,6 +1,8 @@
 import { httpClient } from './httpClient'
 
 const API_BASE_URL = 'https://api.escuelajs.co/api/v1'
+const API_KEY_CLOUDINARY = import.meta.env.VITE_CLOUDINARY_API_KEY
+const API_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
 
 export const ALL_CATEGORIES = 'all'
 
