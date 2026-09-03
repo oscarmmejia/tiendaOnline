@@ -6,7 +6,6 @@
   color: var(--colorText);
   cursor: pointer;
   display: inline-flex;
-  font-family: var(--fontMono);
   font-size: 0.8rem;
   font-weight: 700;
   gap: 0.5rem;
