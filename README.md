@@ -1,50 +1,25 @@
-<div align="center">
+# OKYDOKY · el marketplace del mañana
 
-```
-╔═══════════════════════════════════════════════╗
-║   ▓▓▓  O K Y D O K Y  ▓▓▓                       ║
-║   > el marketplace del mañana                   ║
-╚═══════════════════════════════════════════════╝
-```
+Catálogo online de hardware, moda, muebles y calzado con una identidad visual cyberpunk. Proyecto de bootcamp construido con **React 19** y **Vite 8**.
 
-# ⛧ OKYDOKY
+**[→ Ver la tienda en vivo](https://tienda-online-okydoky.vercel.app/)**
 
-### `// catálogo neón · hardware · moda · muebles · calzado`
-
-Tienda online con estética **cyberpunk**: fondos casi negros, tipografía monoespaciada y acentos cian/magenta. Un catálogo vivo servido desde una API externa, filtros por categoría y una experiencia de _marketplace_ del futuro. Proyecto de bootcamp.
-
-<br>
-
-[![▶ DEMO EN VIVO](https://img.shields.io/badge/▶_DEMO_EN_VIVO-05070d?style=for-the-badge&logo=vercel&logoColor=22d3ee)](https://tienda-online-okydoky.vercel.app/)
-
-[![React 19](https://img.shields.io/badge/React-19-22d3ee?style=flat-square&logo=react&logoColor=05070d)](https://react.dev/)
-[![Vite 8](https://img.shields.io/badge/Vite-8-ff007a?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
-[![React Router 7](https://img.shields.io/badge/React_Router-7-22d3ee?style=flat-square&logo=reactrouter&logoColor=05070d)](https://reactrouter.com/)
-[![Axios](https://img.shields.io/badge/Axios-1.20-ff007a?style=flat-square&logo=axios&logoColor=white)](https://axios-http.com/)
-[![Licencia](https://img.shields.io/badge/licencia-académica-334155?style=flat-square)](#-licencia)
-
-</div>
+![React](https://img.shields.io/badge/React-19-22d3ee?style=flat-square&logo=react&logoColor=05070d)
+![Vite](https://img.shields.io/badge/Vite-8-ff007a?style=flat-square&logo=vite&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-7-22d3ee?style=flat-square&logo=reactrouter&logoColor=05070d)
+![Axios](https://img.shields.io/badge/Axios-1.20-ff007a?style=flat-square&logo=axios&logoColor=white)
 
 ---
 
 ## ⌁ Índice
 
-- [Descripción](#-descripción)
-- [Demo](#-demo)
-- [Capturas](#-capturas)
-- [Características](#-características)
-- [Estética del sistema](#-estética-del-sistema)
-- [Stack tecnológico](#-stack-tecnológico)
-- [Arquitectura del proyecto](#-arquitectura-del-proyecto)
-- [Mapa de rutas](#-mapa-de-rutas)
-- [Requisitos previos](#-requisitos-previos)
-- [Instalación](#-instalación)
-- [Variables de entorno](#-variables-de-entorno)
-- [Comandos disponibles](#-comandos-disponibles)
-- [Integraciones y datos](#-integraciones-y-datos)
-- [Despliegue](#-despliegue)
-- [Equipo](#-equipo)
-- [Licencia](#-licencia)
+| El producto | Bajo el capó | Puesta en marcha |
+| --- | --- | --- |
+| [Descripción](#-descripción) | [Stack tecnológico](#-stack-tecnológico) | [Requisitos previos](#-requisitos-previos) |
+| [Demo](#-demo) | [Arquitectura](#-arquitectura-del-proyecto) | [Instalación](#-instalación) |
+| [Capturas](#-capturas) | [Mapa de rutas](#-mapa-de-rutas) | [Variables de entorno](#-variables-de-entorno) |
+| [Características](#-características) | [Integraciones y datos](#-integraciones-y-datos) | [Comandos](#-comandos-disponibles) |
+| [Estética](#-estética-del-sistema) | [Equipo](#-equipo) · [Licencia](#-licencia) | [Despliegue](#-despliegue) |
 
 ---
 
@@ -303,13 +278,3 @@ Optimizado para **Vercel** como aplicación Vite:
 ## ▚ Licencia
 
 Proyecto **académico** desarrollado para el bootcamp. Todos los derechos del código pertenecen a sus autores.
-
-<div align="center">
-
-```
-╔═══════════════════════════════════════════════╗
-║   ▓▓  OKYDOKY · sistema en línea · 2026  ▓▓     ║
-╚═══════════════════════════════════════════════╝
-```
-
-</div>
