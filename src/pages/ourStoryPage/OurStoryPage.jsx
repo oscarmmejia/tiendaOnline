@@ -1,5 +1,5 @@
-import ourStoryHero from '../../img/ourStory/ourStoryHero.webp'
-import ourStoryOrigin from '../../img/ourStory/ourStoryOrigin.webp'
+import ourStoryHero from '../../assets/img/ourStory/ourStoryHero.webp'
+import ourStoryOrigin from '../../assets/img/ourStory/ourStoryOrigin.webp'
 import ProtocolEvolution from '../../components/organisms/protocolEvolution/ProtocolEvolution.jsx'
 import './OurStoryPage.css'
 

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { ROUTE_PATHS } from '../../routes/routePaths'
 import Weather from '../weather/Weather.jsx'
-import logoOkyDoky from '../../img/header/okydokyLogo.png'
+import logoOkyDoky from '../../assets/img/header/okydokyLogo.png'
 import './Header.css'
 
 const navigationLinks = [

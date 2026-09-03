@@ -7,7 +7,7 @@ const UserCreateButton = ({ onClick, disabled = false }) => (
     onClick={onClick}
     disabled={disabled}
   >
-    <span className="userCreateButtonIcon" aria-hidden="true">+</span>
+    <span className="userCreateButtonIcon" aria-label="true">+</span>
     Añadir usuario
   </button>
 );
