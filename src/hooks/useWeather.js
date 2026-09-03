@@ -15,7 +15,6 @@ const ERROR_MESSAGES = {
 	requestFailed: 'No se pudo cargar el clima',
 }
 
-/** Lo que impide consultar el clima antes siquiera de pedirlo. */
 const getSetupError = () => {
 	if (!WEATHER_API_KEY) {
 		return ERROR_MESSAGES.missingApiKey
@@ -28,9 +27,6 @@ const getSetupError = () => {
 	return ''
 }
 
-/**
- * Localiza al usuario y consulta el clima de sus coordenadas.
- */
 const useWeather = () => {
 	const [weather, setWeather] = useState(null)
 	const [requestError, setRequestError] = useState('')
@@ -54,7 +50,6 @@ const useWeather = () => {
 				}
 			},
 			() => {
-				// La geolocalizacion tambien responde tarde: si ya no estamos, se ignora.
 				if (!controller.signal.aborted) {
 					setRequestError(ERROR_MESSAGES.deniedLocation)
 				}

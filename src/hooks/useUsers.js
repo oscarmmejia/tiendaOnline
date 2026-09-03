@@ -1,11 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { isRequestCanceled } from "../services/httpClient";
 import { fetchUsers } from "../services/userService";
 
-/**
- * @param {number} limit Maximum number of users to fetch.
- * @returns {{ users: Object[], loading: boolean, error: string|null, refresh: () => void, addUser: (user: Object) => void }}
- */
 export function useUsers(limit) {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
