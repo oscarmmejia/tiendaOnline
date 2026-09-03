@@ -63,12 +63,12 @@ const normalizeProduct = ({ id, title, description, price, images, category }) =
 const normalizeCategory = ({ id, image }) => {
   const category = findCatalogCategory(id)
   const imageUrl = cleanImageUrl(image)
-  const isUsable = imageUrl && !PLACEHOLDER_IMAGE.test(imageUrl)
+  const isUsable = Boolean(imageUrl) && !PLACEHOLDER_IMAGE.test(imageUrl)
 
   return {
     id,
-    name: category.name,
-    image: isUsable ? imageUrl : category.image,
+    name: category?.name ?? '',
+    image: isUsable ? imageUrl : category?.image ?? imageUrl,
   }
 }
 
@@ -82,39 +82,33 @@ const requestJson = async (endpoint, signal) => {
 }
 
 export const fetchProductById = async (id, signal) => {
-  const data = await requestJson(`/products/${id}`, signal)
+  const productData = await requestJson(`/products/${id}`, signal)
 
   return {
-    id: data.id,
-    title: data.title ?? '',
-    slug: data.slug ?? '',
-    price: data.price ?? 0,
-    description: data.description ?? '',
-    category: data.category ?? null,
-    images: Array.isArray(data.images) ? data.images.map(cleanImageUrl).filter(Boolean) : [],
+    id: productData.id,
+    title: productData.title ?? '',
+    slug: productData.slug ?? '',
+    price: productData.price ?? 0,
+    description: productData.description ?? '',
+    category: productData.category ?? null,
+    images: Array.isArray(productData.images) ? productData.images.map(cleanImageUrl).filter(Boolean) : [],
   }
 }
 
 export const updateProduct = async (id, payload) => {
-  const { data } = await httpClient.put(`${API_BASE_URL}/products/${id}`, payload)
+  const { data: updatedProduct } = await httpClient.put(`${API_BASE_URL}/products/${id}`, payload)
 
-  return data
+  return updatedProduct
 }
 
-/**
- * Creates a product and adapts the API response to the catalog model.
- * @param {{ title: string, price: number, description: string, categoryId: number, images: string[] }} payload
- * @param {AbortSignal} [signal]
- * @returns {Promise<Object>}
- */
 export const createProduct = async (payload, signal) => {
-  const { data } = await httpClient.post(`${API_BASE_URL}/products`, payload, { signal })
-  const category = data.category ?? findCatalogCategory(payload.categoryId)
+  const { data: createdData } = await httpClient.post(`${API_BASE_URL}/products`, payload, { signal })
+  const category = createdData.category ?? findCatalogCategory(payload.categoryId)
 
   return normalizeProduct({
     ...payload,
-    ...data,
-    images: data.images ?? payload.images,
+    ...createdData,
+    images: createdData.images ?? payload.images,
     category,
   })
 }
