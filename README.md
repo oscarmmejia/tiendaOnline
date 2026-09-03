@@ -386,6 +386,11 @@ npm install -D @vitest/coverage-v8
 npm run test:run -- --coverage
 ```
 
+### `> Resultado`
+Resultado correcto al lanzar los tests.
+
+![Resultado correcto](public/screenshots/tests.png)
+
 ### Notas
 
 - Al ejecutar la suite aparece el aviso `Not implemented: Window's scrollTo()`. Es una limitación conocida de jsdom (no implementa el _scroll_) provocada por el hook `useScrollToTop`; **no** indica un fallo y los tests siguen pasando.
