@@ -313,12 +313,10 @@ Los tests viven **fuera** de `src/components` y `src/services` para que el árbo
 
 > Todos los comandos apuntan a `src/test/vitest.config.js` mediante el flag `--config`, así que **no funcionan sin él**: usa siempre los scripts de `package.json` en lugar de invocar `vitest` a secas.
 
-Salida esperada con la suite en verde:
+### `> Resultado`
+Salida esperada con la suite en verde.
 
-```text
- Test Files  9 passed (9)
-      Tests  13 passed (13)
-```
+![Resultado correcto](public/screenshots/tests.png)
 
 ### Configuración
 
@@ -385,11 +383,6 @@ Aún no hay un proveedor de cobertura instalado. Para activarlo:
 npm install -D @vitest/coverage-v8
 npm run test:run -- --coverage
 ```
-
-### `> Resultado`
-Resultado correcto al lanzar los tests.
-
-![Resultado correcto](public/screenshots/tests.png)
 
 ### Notas
 
