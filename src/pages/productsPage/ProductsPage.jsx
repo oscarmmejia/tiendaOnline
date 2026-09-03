@@ -14,10 +14,12 @@ const PAGE_TITLE = 'Nuestros productos'
 const PAGE_DESCRIPTION =
 	'Catálogo de tecnología, indumentaria, calzado, muebles y más. Disponibles para adquisición inmediata en el nexus de OKYDOKY.'
 
+const VALID_CATEGORY_PATTERN = /^[1-5]$/
+
 const getCategoryFromSearchParams = (searchParams) => {
 	const categoryId = searchParams.get('categoryId')
 
-	return categoryId && /^[1-5]$/.test(categoryId) ? categoryId : ALL_CATEGORIES
+	return categoryId && VALID_CATEGORY_PATTERN.test(categoryId) ? categoryId : ALL_CATEGORIES
 }
 
 const ProductsPage = () => {
@@ -44,10 +46,10 @@ const ProductsPage = () => {
 	const handleProductCreated = (createdProduct) => {
 		addProduct(createdProduct)
 
-		if (
-			selectedCategory !== ALL_CATEGORIES
-			&& selectedCategory !== String(createdProduct.categoryId)
-		) {
+		const isFilteredCategory = selectedCategory !== ALL_CATEGORIES
+		const isDifferentCategory = selectedCategory !== String(createdProduct.categoryId)
+
+		if (isFilteredCategory && isDifferentCategory) {
 			setSearchParams({ categoryId: String(createdProduct.categoryId) })
 		}
 
@@ -64,9 +66,7 @@ const ProductsPage = () => {
 			return products
 		}
 
-		return products.filter(
-			(product) => String(product.categoryId) === selectedCategory,
-		)
+		return products.filter((product) => String(product.categoryId) === selectedCategory)
 	}, [products, selectedCategory])
 
 	return (

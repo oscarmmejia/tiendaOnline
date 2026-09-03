@@ -16,13 +16,14 @@ const Weather = () => {
 		)
 	}
 
-	const weatherLabel = `Clima actual: ${weather.description}, ${weather.temperature} grados`
+	const { description, temperature, iconUrl } = weather
+	const weatherLabel = `Clima actual: ${description}, ${temperature} grados`
 
 	return (
 		<aside className="weatherWidget" aria-label={weatherLabel} title={weatherLabel}>
 			<div className="weatherSummary">
-				<img className="weatherIcon" src={weather.iconUrl} alt={weather.description} />
-				<span className="weatherTemperature">{weather.temperature}</span>
+				<img className="weatherIcon" src={iconUrl} alt={description} />
+				<span className="weatherTemperature">{temperature}</span>
 				<span className="weatherUnit">°C</span>
 			</div>
 		</aside>

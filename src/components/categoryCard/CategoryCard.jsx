@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
-import { isRequestCanceled } from '../../services/httpClient'
-import { fetchCatalogCategories } from '../../services/productsApi'
 import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '../../routes/routePaths'
+import { isRequestCanceled } from '../../services/httpClient'
+import { fetchCatalogCategories } from '../../services/productsApi'
 import './CategoryCard.css'
+
+const CATEGORY_CARD_VARIANTS = ['categoryCardCyan', 'categoryCardPink']
+
+const getCategoryCardVariant = (index) => CATEGORY_CARD_VARIANTS[index % CATEGORY_CARD_VARIANTS.length]
 
 const CategoryCard = () => {
 	const [categories, setCategories] = useState([])
@@ -47,7 +51,7 @@ const CategoryCard = () => {
 					to={`${ROUTE_PATHS.products}?categoryId=${id}`}
 				>
 					<article
-						className={`categoryCard ${index % 2 === 0 ? 'categoryCardCyan' : 'categoryCardPink'}`}
+						className={`categoryCard ${getCategoryCardVariant(index)}`}
 					>
 						<img className="categoryCardImage" src={image} alt={name} />
 						<h3 className="categoryCardName">{name}</h3>

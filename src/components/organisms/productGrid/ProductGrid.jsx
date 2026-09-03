@@ -2,7 +2,7 @@ import ProductCard from '../../molecules/productCard/ProductCard'
 import './ProductGrid.css'
 
 const ProductGrid = ({ products, onProductUpdated, onDelete }) => {
-	if (products.length === 0) {
+	if (!products || products.length === 0) {
 		return <p className="productGridEmpty">No hay productos en esta categoría.</p>
 	}
 

@@ -3,8 +3,8 @@ import "./Modal.css";
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
+  const handleBackdropClick = (event) => {
+    if (event.target === event.currentTarget) {
       onClose();
     }
   };

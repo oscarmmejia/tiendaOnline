@@ -1,6 +1,5 @@
 @import "../../styles/editForm.css";
 
-/* Unique styles for UserEditForm — rest is shared in src/styles/editForm.css */
 .userEditFormAvatarUrl {
   font-size: 0.65rem;
   opacity: 0.7;

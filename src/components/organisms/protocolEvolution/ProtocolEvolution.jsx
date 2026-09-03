@@ -15,6 +15,11 @@ const ShieldIcon = () => (
 	</svg>
 )
 
+const PROTOCOL_ACCENT_VARIANTS = {
+	cyan: 'Cyan',
+	magenta: 'Magenta',
+}
+
 const PROTOCOLS = [
 	{
 		id: 'quantumShipping',
@@ -46,7 +51,7 @@ const ProtocolEvolution = () => {
 
 			<ul className="protocolEvolutionList">
 				{PROTOCOLS.map(({ id, version, title, description, accent, icon }) => (
-					<li className={`protocolCard protocolCard${accent === 'cyan' ? 'Cyan' : 'Magenta'}`} key={id}>
+					<li className={`protocolCard protocolCard${PROTOCOL_ACCENT_VARIANTS[accent]}`} key={id}>
 						<span className="protocolCardIcon">{icon}</span>
 						<p className="protocolCardVersion">{version}</p>
 						<h3 className="protocolCardTitle">{title}</h3>

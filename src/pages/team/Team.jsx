@@ -38,7 +38,7 @@ const teamMembers = [
 		description: 'Coordina el viaje de cada pedido desde el nodo de distribución hasta la puerta del cliente, con entregas rápidas y seguimiento en tiempo real.',
 		tags: ['LOGÍSTICA', 'SMART DELIVERY'],
 	},
-    {
+	{
 		src: memberFive,
 		level: 'NIVEL 7',
 		name: 'Cristina Rodríguez López',

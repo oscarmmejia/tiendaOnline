@@ -75,7 +75,6 @@
   }
 }
 
-/* Scrollbar personalizada para el modal */
 .modalContent::-webkit-scrollbar {
   width: 8px;
 }
