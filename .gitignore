@@ -26,5 +26,4 @@ dist-ssr
 # Variables de entorno
 .env
 .env.*
-!.env.example
 .claude/
